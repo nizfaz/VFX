@@ -1,18 +1,38 @@
-<ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>Home</ion-title>
-  </ion-navbar>
-</ion-header>
-
-<ion-content padding>
-  <h3>Ionic Menu Starter</h3>
-
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will show you the way.
-  </p>
-
-  <button ion-button secondary menuToggle>Toggle Menu</button>
-</ion-content>
+<ion-menu [content]="content">
+  <ion-header>
+      <ion-title></ion-title>       
+    <ion-toolbar>
+        <ion-row align-items-center>
+            <ion-col>
+                <ion-title>{{ username }}</ion-title>              
+            </ion-col>
+        </ion-row>
+    </ion-toolbar>
+  </ion-header>
+ 
+  <ion-content>
+    <ion-list>
+      <button ion-item detail-none block menuClose *ngFor="let p of pages" (click)="openPage(p.page)">
+        <ion-icon item-start [name]="p.icon"></ion-icon>
+        {{ p.title }}
+      </button>
+    </ion-list>
+ 
+  </ion-content>
+ 
+  <ion-footer>
+    <ion-toolbar>
+      <ion-row align-items-center>
+        <ion-col>
+          <button ion-button full clear icon-left (click)="logout()">
+            <ion-icon name="sign-out">
+            </ion-icon>
+            Logout</button>
+        </ion-col>
+      </ion-row>
+    </ion-toolbar>
+  </ion-footer>
+ 
+</ion-menu>
+ 
+<ion-nav #content main [root]="rootPage"></ion-nav>
