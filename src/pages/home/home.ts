@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Nav, App } from 'ionic-angular';
+import { NavController, Nav, App } from 'ionic-angular';
 import { AuthProvider } from './../../providers/auth/auth';
 import { ListPage } from '../list/list';
 import { FeedbackPage } from '../feedback/feedback';
@@ -7,6 +7,9 @@ import { SettingsPage } from '../settings/settings';
 import { HelpPage } from '../help/help';
 import { ContactusPage } from '../contactus/contactus';
 import { LoginPage } from '../login/login';
+import { StatisticsPage } from '../statistics/statistics';
+import { UsersPage } from '../users/users';
+import { QuestionsPage } from '../questions/questions';
 
 @Component({
   selector: 'page-home',
@@ -29,9 +32,9 @@ export class HomePage {
     if (this.authProvider.isAdmin()) {
       this.pages = [
         { title: 'List', page: ListPage },
-        { title: 'Statistics', page: FeedbackPage },
-        { title: 'Users', page: FeedbackPage },
-        { title: 'Questions', page: FeedbackPage },
+        { title: 'Statistics', page: StatisticsPage },
+        { title: 'Users', page: UsersPage },
+        { title: 'Questions', page: QuestionsPage },
         { title: 'Settings', page: SettingsPage },
         ];
       this.openPage(ListPage);
