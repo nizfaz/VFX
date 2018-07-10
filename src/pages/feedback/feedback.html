@@ -15,7 +15,53 @@
 
 </ion-header>
 
+<ion-content class="page-feedback">
+    <pre>
+        ss: {{scale | json}}
+      </pre>
 
-<ion-content padding>
-
+  <ion-slides #pager >
+    
+    <ion-slide *ngFor="let slide of slides"> 
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <h4><p [innerHTML]="slide.description"></p></h4>
+      <ion-col radio-group [(ngModel)]="scale">
+          <ion-col>
+            <ion-item>
+              <ion-label>Very Good</ion-label>
+              <ion-radio value="100" (ionSelect)="buttonClick1(100)"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+            <ion-item>
+             <ion-label>Good</ion-label>
+              <ion-radio value="75" (ionSelect)="buttonClick1(75)"></ion-radio>
+            </ion-item>
+          </ion-col>
+          <ion-col>
+              <ion-item>
+               <ion-label>Satisfactory</ion-label>
+                <ion-radio value="50" (ionSelect)="buttonClick1(50)"></ion-radio>
+              </ion-item>
+            </ion-col>
+            <ion-col>
+                <ion-item>
+                 <ion-label>Not Satisfactory</ion-label>
+                  <ion-radio value="25" (ionSelect)="buttonClick1(25)"></ion-radio>
+                </ion-item>
+              </ion-col>
+        </ion-col>
+    </ion-slide>
+    <ion-slide>
+      <ion-toolbar>
+      </ion-toolbar>
+      <!--<img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/> -->
+      <h4 class="slide-title">Improvement suggestions</h4>
+      <textarea> </textarea>
+      <button ion-button large clear icon-end color="primary">
+        Submit
+        <ion-icon name="arrow-forward"></ion-icon>
+      </button>
+    </ion-slide>
+  </ion-slides>
 </ion-content>
