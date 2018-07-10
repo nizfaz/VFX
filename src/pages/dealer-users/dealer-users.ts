@@ -23,7 +23,12 @@ export class DealerUsersPage {
 
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase) {
     this.dealersRef = afd.list('/users');
-    this.dealerList = this.dealersRef.valueChanges();
+    this.dealerList = this.dealersRef.snapshotChanges().map(
+      changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }))
+      });
   }
 
   addDealer(){
@@ -31,7 +36,11 @@ export class DealerUsersPage {
   }
 
   editDealer(dealer) {
-    return this.dealersRef.update(dealer.key, dealer);
+    this.navCtrl.push(AddDealerPage, {
+      key: dealer.key,
+      name: dealer.name,
+      language: dealer.language
+    });    
   }
 
   deleteDealer(dealer) {

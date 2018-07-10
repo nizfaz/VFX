@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 
 /**
@@ -17,22 +17,37 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 export class AddDealerPage {
 
   public dealerList:AngularFireList<any>;
+  dealer = { id: '', name: '', language: ''};
 
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase) {
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase, public params: NavParams) {
     this.dealerList = afd.list('/users');
+    this.dealer.id = this.params.get('key');
+    this.dealer.name = this.params.get('name');
+    this.dealer.language = this.params.get('language');
   }
 
-  addDealer(name, language) {
-    this.dealerList.push({
-      name: name,
-      language: language,
-      isAdmin: 0,
-      password: ''
-    }).then( newDealer => {
-      this.navCtrl.pop();
-    }, error => {
-      console.log(error);
-    }); 
+  addDealer(id, name, language) {
+    if(id) {
+      this.dealerList.update(id, {
+        name: name,
+        language: language
+      }).then( newDealer => {
+        this.navCtrl.pop();
+      }, error => {
+        console.log(error);
+      });
+    } else {
+      this.dealerList.push({
+        name: name,
+        language: language,
+        isAdmin: 0,
+        password: ''
+      }).then( newDealer => {
+        this.navCtrl.pop();
+      }, error => {
+        console.log(error);
+      }); 
+      }    
   }
 
   ionViewDidLoad() {
