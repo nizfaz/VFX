@@ -14,6 +14,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
 
 import {AddDealerPage} from '../pages/add-dealer/add-dealer';
+import { AddProdUserPage } from '../pages/add-prod-user/add-prod-user';
 import {ContactusPage} from '../pages/contactus/contactus';
 import {DealersQueryPage} from '../pages/dealers-query/dealers-query';
 import {DealerUsersPage} from '../pages/dealer-users/dealer-users';
@@ -32,6 +33,7 @@ import {UsersPage} from '../pages/users/users';
   declarations: [
     MyApp,
     AddDealerPage,
+    AddProdUserPage,
     ContactusPage,
     DealersQueryPage,
     DealerUsersPage,
@@ -58,6 +60,7 @@ import {UsersPage} from '../pages/users/users';
   entryComponents: [
     MyApp,
     AddDealerPage,
+    AddProdUserPage,
     ContactusPage,
     DealersQueryPage,
     DealerUsersPage,
