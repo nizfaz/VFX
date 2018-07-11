@@ -22,7 +22,7 @@ export class ProdUsersPage {
   prodUserList: Observable<any[]>;
 
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase) {
-    this.prodUsersRef = afd.list('/users');
+    this.prodUsersRef = afd.list('/users', ref => ref.orderByChild('isAdmin').equalTo(1));
     this.prodUserList = this.prodUsersRef.snapshotChanges().map(
       changes => {
         return changes.map(c => ({
