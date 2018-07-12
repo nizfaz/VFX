@@ -11,11 +11,33 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Questions</ion-title>
+    <ion-buttons end>
+      <button (click)="addQuestion()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content>
+    <ion-list>
+        <ion-item-sliding *ngFor="let question of questionList | async">
+            <ion-item>
+                <ion-icon name="book" danger item-left></ion-icon>
+                <h2>Question: {{question.qn}}</h2>
+            </ion-item>
+            <ion-item-options>
+                <button ion-button color="primary" icon-left (click)="editQuestion(question)">
+                  <ion-icon name="ios-create"></ion-icon>
+                  Edit
+                </button>
+                <button ion-button color="danger" icon-left (click)="deleteQuestion(question)">
+                  <ion-icon name="ios-trash"></ion-icon>
+                  Delete
+                </button>
+            </ion-item-options>
+        </ion-item-sliding>
+    </ion-list>
 </ion-content>

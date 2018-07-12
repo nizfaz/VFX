@@ -10,6 +10,7 @@ import { LoginPage } from '../login/login';
 import { StatisticsPage } from '../statistics/statistics';
 import { UsersPage } from '../users/users';
 import { QuestionsPage } from '../questions/questions';
+import { ReportPage } from '../report/report';
 
 @Component({
   selector: 'page-home',
@@ -32,7 +33,7 @@ export class HomePage {
     if (this.authProvider.isAdmin()) {
       this.pages = [
         { title: 'List', page: ListPage },
-        { title: 'Statistics', page: StatisticsPage },
+        { title: 'Report', page: ReportPage },
         { title: 'Users', page: UsersPage },
         { title: 'Questions', page: QuestionsPage },
         { title: 'Settings', page: SettingsPage },

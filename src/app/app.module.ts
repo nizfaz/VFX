@@ -15,7 +15,9 @@ import { AuthProvider } from '../providers/auth/auth';
 
 import {AddDealerPage} from '../pages/add-dealer/add-dealer';
 import { AddProdUserPage } from '../pages/add-prod-user/add-prod-user';
+import { AddQuestionPage } from '../pages/add-question/add-question';
 import {ContactusPage} from '../pages/contactus/contactus';
+import { DealersCommentsPage } from '../pages/dealers-comments/dealers-comments';
 import {DealersQueryPage} from '../pages/dealers-query/dealers-query';
 import {DealerUsersPage} from '../pages/dealer-users/dealer-users';
 import {FeedbackPage} from '../pages/feedback/feedback';
@@ -25,6 +27,7 @@ import {ListPage} from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 import {ProdUsersPage} from '../pages/prod-users/prod-users';
 import {QuestionsPage} from '../pages/questions/questions';
+import { ReportPage } from '../pages/report/report';
 import {SettingsPage} from '../pages/settings/settings';
 import {StatisticsPage} from '../pages/statistics/statistics';
 import {UsersPage} from '../pages/users/users';
@@ -34,7 +37,9 @@ import {UsersPage} from '../pages/users/users';
     MyApp,
     AddDealerPage,
     AddProdUserPage,
+    AddQuestionPage,
     ContactusPage,
+    DealersCommentsPage,
     DealersQueryPage,
     DealerUsersPage,
     FeedbackPage,
@@ -44,6 +49,7 @@ import {UsersPage} from '../pages/users/users';
     LoginPage,
     ProdUsersPage,
     QuestionsPage,
+    ReportPage,
     SettingsPage,
     StatisticsPage,
     UsersPage
@@ -61,7 +67,9 @@ import {UsersPage} from '../pages/users/users';
     MyApp,
     AddDealerPage,
     AddProdUserPage,
+    AddQuestionPage,
     ContactusPage,
+    DealersCommentsPage,
     DealersQueryPage,
     DealerUsersPage,
     FeedbackPage,
@@ -71,6 +79,7 @@ import {UsersPage} from '../pages/users/users';
     LoginPage,
     ProdUsersPage,
     QuestionsPage,
+    ReportPage,
     SettingsPage,
     StatisticsPage,
     UsersPage

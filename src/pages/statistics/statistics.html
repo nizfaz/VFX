@@ -16,6 +16,16 @@
 </ion-header>
 
 
-<ion-content padding>
-
+<ion-content> 
+    <ion-label>Select a Question</ion-label>
+    <ion-item>
+        <ion-select  [(ngModel)]="question" [multiple]="false">
+          <ion-option *ngFor="let question of questionList | async" [value] = "question.qn" (ionSelect)="displayChart(question.qnId)">{{question.qn}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart">
+        <canvas #doughnutCanvas></canvas>
+      </ion-card-content>
+    </ion-card>
 </ion-content>
