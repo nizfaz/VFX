@@ -31,6 +31,7 @@ import { ReportPage } from '../pages/report/report';
 import {SettingsPage} from '../pages/settings/settings';
 import {StatisticsPage} from '../pages/statistics/statistics';
 import {UsersPage} from '../pages/users/users';
+import {ThankyouPage} from '../pages/thankyou/thankyou';
 
 @NgModule({
   declarations: [
@@ -52,7 +53,8 @@ import {UsersPage} from '../pages/users/users';
     ReportPage,
     SettingsPage,
     StatisticsPage,
-    UsersPage
+    UsersPage,
+    ThankyouPage
   ],
   imports: [
     HttpClientModule,
@@ -82,7 +84,8 @@ import {UsersPage} from '../pages/users/users';
     ReportPage,
     SettingsPage,
     StatisticsPage,
-    UsersPage
+    UsersPage,
+    ThankyouPage
   ],
   providers: [
     StatusBar,

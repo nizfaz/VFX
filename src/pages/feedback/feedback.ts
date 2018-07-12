@@ -1,5 +1,11 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
+import { AuthProvider } from '../../providers/auth/auth';
+import { AngularFireDatabase, AngularFireList, DatabaseReference } from 'angularfire2/database';
+import { ServerValue, Query, DataSnapshot } from '../../../node_modules/@firebase/database';
+import { ThankyouPage } from '../thankyou/thankyou';
+import { FirebaseDatabase } from '../../../node_modules/@firebase/database-types';
+import { Observable } from '../../../node_modules/rxjs';
 
 /**
  * Generated class for the FeedbackPage page.
@@ -14,8 +20,25 @@ import { IonicPage, NavController, NavParams, Slides } from 'ionic-angular';
   templateUrl: 'feedback.html',
 })
 export class FeedbackPage {
-  scale: any;   
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+
+  feedback = {};
+  responses = {};
+  scale: any;
+  suggestions : any;
+  public feedbackList:AngularFireList<any>;
+  public questionsRef:AngularFireList<any>;
+  questionsList: Observable<any>;
+
+  constructor(public navCtrl: NavController, private authProvider: AuthProvider,public afd: AngularFireDatabase, public navParams: NavParams) {
+    this.feedbackList = afd.list('/feedback');
+
+    this.questionsRef = this.afd.list('/questions');
+    this.questionsList = this.questionsRef.snapshotChanges().map(
+      changes => {
+        return changes.map(c => ({
+          key: c.payload.key, ...c.payload.val()
+        }))
+      });
   }
 
   @ViewChild('pager') slider: Slides;
@@ -24,11 +47,37 @@ export class FeedbackPage {
     console.log('ionViewDidLoad FeedbackPage');
   }
 
-  buttonClick1(value){
-    alert("clicked : " + value);
+
+  resSelected(index, value){
+    this.responses[index] = {
+      "questionId" : index,
+      "response" : value
+    }
     this.slider.slideNext();
     this.scale = null;
   }
+
+  submitFeedback(){
+  
+    if(typeof this.suggestions == 'undefined'){
+      this.suggestions = "";
+    }
+
+    this.feedbackList.push({
+      dealerName: this.authProvider.currentUser.name,
+      feedbackDate: ServerValue.TIMESTAMP,
+      suggestions: this.suggestions,
+      responses: this.responses
+    }).then( newProdUser => {
+      this.navCtrl.setRoot(ThankyouPage);;
+    }),error => {
+      console.log(error);
+    }; 
+
+    this.questionsList.subscribe(competitor => console.log(competitor));
+    
+  }
+
 
   slides = [
     {
