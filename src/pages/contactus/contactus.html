@@ -12,10 +12,19 @@
     </button>
     <ion-title>Contact Us</ion-title>
   </ion-navbar>
-
 </ion-header>
+ 
+<ion-content>
+  <ion-list>
+    <ion-item>
+         <ion-input type="text" placeholder="please enter your email Id"></ion-input>
+        </ion-item>
+    <ion-item>
+       <ion-input type="text" placeholder="Comments"></ion-input>
+    </ion-item>
+  
+ 
+    <button ion-button full (click)="loginUser()">Submit</button>
 
-
-<ion-content padding>
-
+</ion-list>
 </ion-content>
