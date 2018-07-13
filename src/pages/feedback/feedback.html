@@ -16,11 +16,10 @@
 </ion-header>
 
 <ion-content class="page-feedback">
-
   <ion-slides #pager >
-    <ion-slide *ngFor="let slide of slides; let indx = index"> 
-      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
-      <h4><p [innerHTML]="slide.description"></p></h4>
+    <ion-slide *ngFor="let question of questionsList | async; let indx = index;"> 
+      <h2 class="slide-title">Question {{indx + 1}}</h2>
+      <h4><p [innerHTML]="question.qn"></p></h4>
       <ion-col radio-group [(ngModel)]="scale">
           <ion-col>
             <ion-item>
@@ -51,13 +50,6 @@
     <ion-slide>
       <ion-toolbar>
       </ion-toolbar>
-      <!--<img src="assets/img/ica-slidebox-img-4.png" class="slide-image"/> 
-    <h4 class="slide-title">Improvement suggestions</h4>
-      <ion-input type="text" value="" [(ngModel)]="suggestions"></ion-input>
-      <button ion-button large clear icon-end color="primary" (click)='submit();'>
-        Submit
-        <ion-icon name="arrow-forward"></ion-icon>
-      </button>-->
       <h4 class="slide-title">Improvement suggestions</h4>
       <ion-item> 
           <ion-textarea type="text"  [(ngModel)]="suggestions" [ngModelOptions]="{standalone: true}" 

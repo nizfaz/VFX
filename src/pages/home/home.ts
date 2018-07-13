@@ -7,7 +7,6 @@ import { SettingsPage } from '../settings/settings';
 import { HelpPage } from '../help/help';
 import { ContactusPage } from '../contactus/contactus';
 import { LoginPage } from '../login/login';
-import { StatisticsPage } from '../statistics/statistics';
 import { UsersPage } from '../users/users';
 import { QuestionsPage } from '../questions/questions';
 import { ReportPage } from '../report/report';
