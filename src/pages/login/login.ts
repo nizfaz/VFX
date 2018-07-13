@@ -17,8 +17,8 @@ import { HomePage } from '../home/home';
 export class LoginPage {
 
   user = {
-    name: 'admin',
-    pw: 'admin'
+    name: 'user',
+    pw: 'user'
   };
 
   constructor(public navCtrl: NavController, private authProvider: AuthProvider, private alertCtrl: AlertController, public navParams: NavParams) {

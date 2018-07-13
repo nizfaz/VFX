@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar  color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -20,7 +20,7 @@
     <ion-list>
         <ion-item-sliding *ngFor="let comment of comments">
             <ion-item text-wrap>
-                <ion-icon name="book" danger item-left></ion-icon>
+                <ion-icon name="text" danger item-left></ion-icon>
                 <h2>{{comment}}</h2>
             </ion-item>
         </ion-item-sliding>

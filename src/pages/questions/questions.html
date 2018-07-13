@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
@@ -24,10 +24,10 @@
 <ion-content>
     <ion-list>
         <ion-item-sliding *ngFor="let question of questionList | async">
-            <ion-item>
-                <ion-icon name="book" danger item-left></ion-icon>
+            <ion-item-options>
+                <ion-icon name="help" danger item-left></ion-icon>
                 <h2>Question: {{question.qn}}</h2>
-            </ion-item>
+            </ion-item-options>
             <ion-item-options>
                 <button ion-button color="primary" icon-left (click)="editQuestion(question)">
                   <ion-icon name="ios-create"></ion-icon>

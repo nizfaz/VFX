@@ -1,9 +1,9 @@
 <ion-menu [content]="content">
-  <ion-header>
+  <ion-header color="primary">
       <ion-title></ion-title>       
     <ion-toolbar>
         <ion-row align-items-center>
-            <ion-col>
+            <ion-col color="primary">
                 <ion-title>{{ username }}</ion-title>              
             </ion-col>
         </ion-row>
@@ -21,10 +21,10 @@
   </ion-content>
  
   <ion-footer>
-    <ion-toolbar>
+    <ion-toolbar >
       <ion-row align-items-center>
         <ion-col>
-          <button ion-button full clear icon-left (click)="logout()">
+          <button ion-button full icon-center (click)="logout()">
             <ion-icon name="sign-out">
             </ion-icon>
             Logout</button>
