@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import * as firebase from 'firebase';
 
 /**
  * Generated class for the DealersCommentsPage page.
@@ -18,25 +19,63 @@ export class CustomersCommentsPage {
   ref: AngularFireList<any>;
   comments = [];
 
+  public suggestionsList = [];
+  public loadedSuggestionsList = [];
+  public dbRef:firebase.database.Reference;
+
+  descending: boolean = false;
+  order: number;
+  column: string = 'feedbackDate';
+    
   constructor(public navCtrl: NavController, private db: AngularFireDatabase, public navParams: NavParams) {
+    this.dbRef = firebase.database().ref('/feedback');
+
+    this.dbRef.on('value', suggestionsList => {
+      let suggestions = [];
+      suggestionsList.forEach( suggestion => {
+        let suggestionVal = suggestion.child('suggestions').val();
+        suggestionVal.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); // to avoid displaying empty suggestions
+        if(suggestionVal) {
+          suggestions.push(suggestion.val());
+        }
+        return false;
+      });
+    
+      this.suggestionsList = suggestions;
+      this.loadedSuggestionsList = suggestions;
+    });
+    this.sort();
   }
 
-  ionViewDidLoad() {
-    // Reference to our Firebase List
-    this.ref = this.db.list('feedback', ref => ref.orderByChild('feedbackDate'));
-    this.ref.valueChanges().subscribe(result => {      
-      this.createFilteredCommentList(result);
-      })
+  initializeItems(): void {
+    this.suggestionsList = this.loadedSuggestionsList;
   }
 
-  createFilteredCommentList(data) {
-    let commentList = data;    
-    for (let trans of commentList) {
-      let comment = trans.suggestions;
-      comment = comment.replace(/^\s\s*/, '').replace(/\s\s*$/, '')      
-      if(comment) {
-        this.comments.push(comment);
-      }
+  getItems(searchbar) {
+    // Reset items back to all of the items
+    this.initializeItems();
+  
+    // set q to the value of the searchbar
+    var q = searchbar.srcElement.value;
+  
+  
+    // if the value is an empty string don't filter the items
+    if (!q) {
+      return;
     }
+  
+    this.suggestionsList = this.suggestionsList.filter((v) => {
+      if(v.dealerId && q) {
+        if (v.dealerId.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          return true;
+        }
+        return false;
+      }
+    });
+  }
+
+  sort(){
+    //this.descending = !this.descending;
+    this.order = this.descending ? 1 : -1;
   }
 }

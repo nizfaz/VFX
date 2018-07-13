@@ -18,7 +18,7 @@ import { AddProdUserPage } from '../pages/add-prod-user/add-prod-user';
 import { AddQuestionPage } from '../pages/add-question/add-question';
 import {ContactusPage} from '../pages/contactus/contactus';
 import { CustomersCommentsPage } from '../pages/customers-comments/customers-comments';
-import {DealersQueryPage} from '../pages/dealers-query/dealers-query';
+import { DealerSupportPage } from '../pages/dealer-support/dealer-support';
 import {DealerUsersPage} from '../pages/dealer-users/dealer-users';
 import {FeedbackPage} from '../pages/feedback/feedback';
 import {HelpPage} from '../pages/help/help';
@@ -33,6 +33,7 @@ import {StatisticsPage} from '../pages/statistics/statistics';
 import {UsersPage} from '../pages/users/users';
 import {ThankyouPage} from '../pages/thankyou/thankyou';
 import { HttpModule } from '@angular/http';
+import { SortPipe } from '../pipes/sort/sort';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { HttpModule } from '@angular/http';
     AddQuestionPage,
     ContactusPage,
     CustomersCommentsPage,
-    DealersQueryPage,
+    DealerSupportPage,
     DealerUsersPage,
     FeedbackPage,
     HelpPage,
@@ -55,7 +56,8 @@ import { HttpModule } from '@angular/http';
     SettingsPage,
     StatisticsPage,
     UsersPage,
-    ThankyouPage
+    ThankyouPage,
+    SortPipe
   ],
   imports: [
     HttpClientModule,
@@ -74,7 +76,7 @@ import { HttpModule } from '@angular/http';
     AddQuestionPage,
     ContactusPage,
     CustomersCommentsPage,
-    DealersQueryPage,
+    DealerSupportPage,
     DealerUsersPage,
     FeedbackPage,
     HelpPage,

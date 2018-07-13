@@ -10,6 +10,7 @@ import { LoginPage } from '../login/login';
 import { UsersPage } from '../users/users';
 import { QuestionsPage } from '../questions/questions';
 import { ReportPage } from '../report/report';
+import { DealerSupportPage } from '../dealer-support/dealer-support';
 
 @Component({
   selector: 'page-home',
@@ -34,6 +35,7 @@ export class HomePage {
         { title: 'Report', page: ReportPage },
         { title: 'Users', page: UsersPage },
         { title: 'Questions', page: QuestionsPage },
+        { title: 'Dealer Support', page: DealerSupportPage },
         { title: 'Settings', page: SettingsPage },
         ];
       this.openPage(ReportPage);
@@ -41,7 +43,7 @@ export class HomePage {
       this.pages = [
         { title: 'Feedback', page: FeedbackPage },
         { title: 'Settings', page: SettingsPage },
-        { title: 'Help', page: HelpPage },
+        { title: 'FAQs', page: HelpPage },
         { title: 'Contact Us', page: ContactusPage },
         ];
       this.openPage(FeedbackPage);

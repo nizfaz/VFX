@@ -64,16 +64,14 @@ export class FeedbackPage {
   
       this.feedbackList.push({
         dealerId: this.authProvider.currentUser.id,
-        feedbackDate: ServerValue.TIMESTAMP,
+        feedbackDate: Date(),
         suggestions: this.suggestions,
         responses: this.responses
-      }).then( newProdUser => {
+      }).then( success => {
         this.navCtrl.setRoot(ThankyouPage);;
       }),error => {
         console.log(error);
-      }; 
-  
-      this.questionsList.subscribe(competitor => console.log(competitor))        
+      };  
     } else {
       let alert = this.alertCtrl.create({
         title: 'Answers required',
