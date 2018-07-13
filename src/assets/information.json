@@ -1,0 +1,33 @@
+{
+    "items": [
+        {
+            "name": "Question1",
+            "children": [
+                {
+                    "name": "How can i change my Password",
+                    "information": " Go to setting->Manage password."
+                 }
+            ]
+        },
+        {
+            "name": "Question2",
+            "children": [
+                {
+                    "name": "Is this app store any customer details?",
+                     "information": " No this app doesn't store any customer details"
+                }
+            ]       
+      },
+    
+    {
+        "name": "Question3",
+        "children": [
+            {
+                "name": "Does the improvement suggested by customer visible for dealer",
+                 "information": " No the production team gets the sugeestion by customer and they will take collective action to improve customer satisfactions "
+            }
+        ]       
+  }
+    ]
+}
+     

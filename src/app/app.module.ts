@@ -32,6 +32,7 @@ import {SettingsPage} from '../pages/settings/settings';
 import {StatisticsPage} from '../pages/statistics/statistics';
 import {UsersPage} from '../pages/users/users';
 import {ThankyouPage} from '../pages/thankyou/thankyou';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import {ThankyouPage} from '../pages/thankyou/thankyou';
   ],
   imports: [
     HttpClientModule,
+    HttpModule,
     BrowserModule,
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase, 'volvofeedbackapp'),
@@ -89,7 +91,8 @@ import {ThankyouPage} from '../pages/thankyou/thankyou';
   ],
   providers: [
     StatusBar,
-    SplashScreen,
+        HttpModule,
+     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider
   ]
