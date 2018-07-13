@@ -18,15 +18,27 @@ export class AddDealerPage {
 
   public dealerList:AngularFireList<any>;
   dealer = { id: '', name: '', language: ''};
+  dbUserId: number;
 
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase, public params: NavParams) {
-    this.dealerList = afd.list('/users');
+    this.dealerList = afd.list('/users', ref => ref.orderByChild('userId').limitToLast(1));
+    this.dealerList.valueChanges().subscribe(result => this.getUserDetails(result));    
     this.dealer.id = this.params.get('key');
     this.dealer.name = this.params.get('name');
     this.dealer.language = this.params.get('language');
   }
 
+  getUserDetails(data) {
+    if(data.length > 0) {
+      this.dbUserId = data[0].userId;
+    }
+  }
+
   addDealer(id, name, language) {
+    let newUserId = 100001;
+    if(this.dbUserId) {
+      newUserId += this.dbUserId;
+    }
     if(id) {
       this.dealerList.update(id, {
         name: name,
@@ -38,10 +50,11 @@ export class AddDealerPage {
       });
     } else {
       this.dealerList.push({
+        userId: newUserId,
         name: name,
         language: language,
         isAdmin: 0,
-        password: ''
+        password: 'volvo123'
       }).then( newDealer => {
         this.navCtrl.pop();
       }, error => {

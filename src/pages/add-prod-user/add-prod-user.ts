@@ -18,15 +18,27 @@ export class AddProdUserPage {
 
   public prodUserList:AngularFireList<any>;
   prodUser = { id: '', name: '', language: ''};
+  dbUserId: number;
 
   constructor(public navCtrl: NavController, public afd: AngularFireDatabase, public params: NavParams) {
-    this.prodUserList = afd.list('/users');
+    this.prodUserList = afd.list('/users', ref => ref.orderByChild('userId').limitToLast(1));
+    this.prodUserList.valueChanges().subscribe(result => this.getUserDetails(result));    
     this.prodUser.id = this.params.get('key');
     this.prodUser.name = this.params.get('name');
     this.prodUser.language = this.params.get('language');
   }
 
+  getUserDetails(data) {
+    if(data.length > 0) {
+      this.dbUserId = data[0].userId;
+    }
+  }
+
   addProdUser(id, name, language) {
+    let newUserId = 500001;
+    if(this.dbUserId) {
+      newUserId += this.dbUserId;
+    }
     if(id) {
       this.prodUserList.update(id, {
         name: name,
@@ -38,10 +50,11 @@ export class AddProdUserPage {
       });
     } else {
       this.prodUserList.push({
+        userId: newUserId,
         name: name,
         language: language,
         isAdmin: 1,
-        password: ''
+        password: 'volvo123'
       }).then( newProdUser => {
         this.navCtrl.pop();
       }, error => {

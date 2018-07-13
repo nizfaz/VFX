@@ -48,7 +48,7 @@ export class StatisticsPage {
       });
     
     // Reference to our Firebase List
-    this.ref = this.db.list('feedback', ref => ref.orderByChild('dealerName'));
+    this.ref = this.db.list('feedback', ref => ref.orderByChild('dealerId'));
 //    this.displayChart(0);
 
   }

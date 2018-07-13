@@ -12,9 +12,9 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 @IonicPage()
 @Component({
   selector: 'page-dealers-comments',
-  templateUrl: 'dealers-comments.html',
+  templateUrl: 'customer-comments.html',
 })
-export class DealersCommentsPage {
+export class CustomerCommentsPage {
   ref: AngularFireList<any>;
   comments = [];
 

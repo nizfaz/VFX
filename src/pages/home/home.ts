@@ -31,13 +31,12 @@ export class HomePage {
   ionViewWillEnter() {
     if (this.authProvider.isAdmin()) {
       this.pages = [
-        { title: 'List', page: ListPage },
         { title: 'Report', page: ReportPage },
         { title: 'Users', page: UsersPage },
         { title: 'Questions', page: QuestionsPage },
         { title: 'Settings', page: SettingsPage },
         ];
-      this.openPage(ListPage);
+      this.openPage(ReportPage);
     } else {
       this.pages = [
         { title: 'Feedback', page: FeedbackPage },

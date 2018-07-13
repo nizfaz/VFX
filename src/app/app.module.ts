@@ -17,7 +17,7 @@ import {AddDealerPage} from '../pages/add-dealer/add-dealer';
 import { AddProdUserPage } from '../pages/add-prod-user/add-prod-user';
 import { AddQuestionPage } from '../pages/add-question/add-question';
 import {ContactusPage} from '../pages/contactus/contactus';
-import { DealersCommentsPage } from '../pages/dealers-comments/dealers-comments';
+import { CustomersCommentsPage } from '../pages/customers-comments/customers-comments';
 import {DealersQueryPage} from '../pages/dealers-query/dealers-query';
 import {DealerUsersPage} from '../pages/dealer-users/dealer-users';
 import {FeedbackPage} from '../pages/feedback/feedback';
@@ -40,7 +40,7 @@ import {ThankyouPage} from '../pages/thankyou/thankyou';
     AddProdUserPage,
     AddQuestionPage,
     ContactusPage,
-    DealersCommentsPage,
+    CustomersCommentsPage,
     DealersQueryPage,
     DealerUsersPage,
     FeedbackPage,
@@ -71,7 +71,7 @@ import {ThankyouPage} from '../pages/thankyou/thankyou';
     AddProdUserPage,
     AddQuestionPage,
     ContactusPage,
-    DealersCommentsPage,
+    CustomersCommentsPage,
     DealersQueryPage,
     DealerUsersPage,
     FeedbackPage,

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StatisticsPage } from '../statistics/statistics';
-import { DealersCommentsPage } from '../dealers-comments/dealers-comments';
+import { CustomersCommentsPage } from '../customers-comments/customers-comments';
 
 /**
  * Generated class for the ReportPage page.
@@ -19,7 +19,7 @@ export class ReportPage {
   // this tells the tabs component which Pages
   // should be each tab's root Page
   tab1Root: any = StatisticsPage;
-  tab2Root: any = DealersCommentsPage;
+  tab2Root: any = CustomersCommentsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
