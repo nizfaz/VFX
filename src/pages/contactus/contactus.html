@@ -17,14 +17,16 @@
 <ion-content>
   <ion-list>
     <ion-item>
-         <ion-input type="text" placeholder="please enter your email Id"></ion-input>
+        <ion-label fixed>Email</ion-label>
+        
+         <ion-input type="text"  [(ngModel)]="suggestions"  placeholder="please enter your email Id"></ion-input>
         </ion-item>
     <ion-item>
-       <ion-input type="text" placeholder="Comments"></ion-input>
+        <ion-label fixed>Your Message</ion-label>
+        <ion-textarea type="text" placeholder="Comments">       </ion-textarea>
     </ion-item>
-  
- 
-    <button ion-button full (click)="loginUser()">Submit</button>
+    <button ion-button full (click)='submitFeedback();'> Submit</button>
+
 
 </ion-list>
 </ion-content>

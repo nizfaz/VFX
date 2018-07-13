@@ -26,6 +26,7 @@
         <ion-item-sliding *ngFor="let prodUser of prodUserList | async">
             <ion-item>
                 <ion-icon name="person" danger item-left></ion-icon>
+                <h2>Id: {{prodUser.userId}}</h2>
                 <h2>Name: {{prodUser.name}}</h2>
             </ion-item>
             <ion-item-options>

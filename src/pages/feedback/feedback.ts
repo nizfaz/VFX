@@ -63,7 +63,7 @@ export class FeedbackPage {
       }
   
       this.feedbackList.push({
-        dealerName: this.authProvider.currentUser.name,
+        dealerId: this.authProvider.currentUser.id,
         feedbackDate: ServerValue.TIMESTAMP,
         suggestions: this.suggestions,
         responses: this.responses

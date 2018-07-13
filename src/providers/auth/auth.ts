@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
 export interface User {
+  id: string,
   name: string;
   role: number;
 }
@@ -20,18 +21,13 @@ export class AuthProvider {
     console.log('Hello AuthProvider Provider');
   }
 
-  login(name: string, pw: string) : Promise<boolean> {
+  login(keyedPwd: string, keyedId: string, dbName: string, dbPwd: string, isAdmin: number) : Promise<boolean> {
     return new Promise((resolve, reject) => {
-      if (name === 'admin' && pw === 'admin') {
+      if (keyedPwd === dbPwd) {
         this.currentUser = {
-          name: name,
-          role: 0
-        };
-        resolve(true);
-      } else if (name === 'user' && pw === 'user') {
-        this.currentUser = {
-          name: name,
-          role: 1
+          id: keyedId,
+          name: dbName,
+          role: isAdmin
         };
         resolve(true);
       } else {
@@ -45,7 +41,7 @@ export class AuthProvider {
   }
  
   isAdmin() {
-    return this.currentUser.role === 0;
+    return this.currentUser.role === 1;
   }
  
   logout() {
