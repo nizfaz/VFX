@@ -1,7 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { NavController, Nav, App } from 'ionic-angular';
 import { AuthProvider } from './../../providers/auth/auth';
-import { ListPage } from '../list/list';
 import { FeedbackPage } from '../feedback/feedback';
 import { SettingsPage } from '../settings/settings';
 import { HelpPage } from '../help/help';

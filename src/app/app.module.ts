@@ -23,7 +23,6 @@ import {DealerUsersPage} from '../pages/dealer-users/dealer-users';
 import {FeedbackPage} from '../pages/feedback/feedback';
 import {HelpPage} from '../pages/help/help';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 import {ProdUsersPage} from '../pages/prod-users/prod-users';
 import {QuestionsPage} from '../pages/questions/questions';
@@ -48,7 +47,6 @@ import { SortPipe } from '../pipes/sort/sort';
     FeedbackPage,
     HelpPage,
     HomePage,
-    ListPage,
     LoginPage,
     ProdUsersPage,
     QuestionsPage,
@@ -81,7 +79,6 @@ import { SortPipe } from '../pipes/sort/sort';
     FeedbackPage,
     HelpPage,
     HomePage,
-    ListPage,
     LoginPage,
     ProdUsersPage,
     QuestionsPage,
