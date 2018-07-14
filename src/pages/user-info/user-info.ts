@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { UserDataProvider } from '../../providers/user-data/user-data';
 
 /**
  * Generated class for the UserInfoPage page.
@@ -14,8 +16,10 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'user-info.html',
 })
 export class UserInfoPage {
+  public userRef:AngularFireList<any>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public userData: UserDataProvider, public navParams: NavParams) {
+    this.userRef = this.userData.userDBRef;
   }
 
   ionViewDidLoad() {

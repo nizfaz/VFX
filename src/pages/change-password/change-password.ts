@@ -1,12 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, AlertController, App } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { ServerValue } from '../../../node_modules/@firebase/database';
-import { ThankyouPage } from '../thankyou/thankyou';
-import { Observable } from '../../../node_modules/rxjs';
 import { UserDataProvider } from '../../providers/user-data/user-data';
-import { UserInfoPage } from '../user-info/user-info';
+import { LoginPage } from '../login/login';
 
 /**
  * Generated class for the ChangePasswordPage page.
@@ -29,7 +26,8 @@ export class ChangePasswordPage {
   confirmPassword = null;
 
   constructor(public navCtrl: NavController, private authProvider: AuthProvider, 
-    public afd: AngularFireDatabase, public userData: UserDataProvider, private alertCtrl: AlertController) {
+    public afd: AngularFireDatabase, public userData: UserDataProvider, 
+    private alertCtrl: AlertController, private appCtrl: App) {
     this.userRef = this.userData.userDBRef;
   }
 
@@ -48,6 +46,7 @@ export class ChangePasswordPage {
             });
             alert.present();   
             this.authProvider.logout();
+            this.appCtrl.getRootNav().setRoot(LoginPage);
           }, error => {
             console.log(error);
           });

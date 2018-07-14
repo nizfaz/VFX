@@ -33,8 +33,8 @@ export class SettingsPage {
   tab1Root: any = UserInfoPage;
   tab2Root: any = ChangePasswordPage;
 
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase
-    , private authProvider: AuthProvider, public userData: UserDataProvider) {
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase,
+    private authProvider: AuthProvider, public userData: UserDataProvider) {
     let userId = parseInt(authProvider.currentUser.id);
     // Get a reference to the database service
     this.userRef = this.afd.list('/users', ref => ref.orderByChild('userId').equalTo(userId));

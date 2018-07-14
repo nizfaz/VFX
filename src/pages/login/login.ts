@@ -34,14 +34,6 @@ export class LoginPage {
     // Get a reference to the database service
     this.userRef = this.afd.list('/users', ref => ref.orderByChild('userId').equalTo(userId));
     this.userRef.valueChanges().subscribe(result => this.getUserDetails(result));    
-  }
-
-  getUserDetails(data) {
-    if(data.length > 0) {
-      this.dbName = data[0].name;
-      this.dbPwd = data[0].password;
-      this.isAdmin = data[0].isAdmin;
-    }
 
     this.authProvider.login(this.keyedPwd, this.keyedId, this.dbName, this.dbPwd, this.isAdmin).then(success => {
       if (success) {
@@ -57,5 +49,13 @@ export class LoginPage {
         alert.present();
       }
     });
+  }
+
+  getUserDetails(data) {
+    if(data.length > 0) {
+      this.dbName = data[0].name;
+      this.dbPwd = data[0].password;
+      this.isAdmin = data[0].isAdmin;
+    }
   }
 }
