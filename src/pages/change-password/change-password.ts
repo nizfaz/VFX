@@ -41,7 +41,7 @@ export class ChangePasswordPage {
           }).then( success => {
             let alert = this.alertCtrl.create({
               title: 'Success',
-              message: 'Password changed',
+              message: 'Password changed. Please re-login',
               buttons: ['OK']
             });
             alert.present();   
@@ -52,10 +52,20 @@ export class ChangePasswordPage {
           });
         } 
       } else {
-
+        let alert = this.alertCtrl.create({
+          title: 'New password failed',
+          message: 'Reconfirm the new password',
+          buttons: ['OK']
+        });
+        alert.present();   
       }
     } else {
-
+      let alert = this.alertCtrl.create({
+        title: 'Password incorrect',
+        message: 'Current password is incorrect',
+        buttons: ['OK']
+      });
+      alert.present();   
     }
 
   }
