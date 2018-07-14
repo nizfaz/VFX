@@ -17,7 +17,6 @@
 
 
 <ion-content> 
-<<<<<<< HEAD
     <ion-card>
       <ion-card-content [hidden]="!doughnutChart0">
           <ion-label>Question: 1</ion-label>
@@ -76,16 +75,6 @@
       <ion-card-content [hidden]="!doughnutChart9">
           <ion-label>Question: 10</ion-label>
         <canvas #doughnutCanvas9></canvas>
-=======
-   <ion-item>
-      <ion-select placeholder="Questions" [(ngModel)]="question" [multiple]="false">
-          <ion-option *ngFor="let question of questionList | async" [value] = "question.qn" (ionSelect)="displayChart(question.qnId)">{{question.qn}}</ion-option>
-      </ion-select>
-    </ion-item>
-    <ion-card>
-      <ion-card-content [hidden]="!doughnutChart">
-        <canvas #doughnutCanvas></canvas>
->>>>>>> a4d12387b45cfda9fdc67fe214a762d7756d9839
       </ion-card-content>
     </ion-card>
 </ion-content>
