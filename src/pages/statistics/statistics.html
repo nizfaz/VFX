@@ -17,15 +17,64 @@
 
 
 <ion-content> 
-    <ion-label>Select a Question</ion-label>
-    <ion-item>
-        <ion-select  [(ngModel)]="question" [multiple]="false">
-          <ion-option *ngFor="let question of questionList | async" [value] = "question.qn" (ionSelect)="displayChart(question.qnId)">{{question.qn}}</ion-option>
-      </ion-select>
-    </ion-item>
     <ion-card>
-      <ion-card-content [hidden]="!doughnutChart">
-        <canvas #doughnutCanvas></canvas>
+      <ion-card-content [hidden]="!doughnutChart0">
+          <ion-label>Question: 1</ion-label>
+          <canvas #doughnutCanvas0></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+        <ion-card-content [hidden]="!doughnutChart1">
+            <ion-label>Question: 2</ion-label>
+            <canvas #doughnutCanvas1></canvas>
+        </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart2">
+          <ion-label>Question: 3</ion-label>
+        <canvas #doughnutCanvas2></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart3">
+          <ion-label>Question: 4</ion-label>
+        <canvas #doughnutCanvas3></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart4">
+          <ion-label>Question: 5</ion-label>
+        <canvas #doughnutCanvas4></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart5">
+          <ion-label>Question: 6</ion-label>
+        <canvas #doughnutCanvas5></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart6">
+          <ion-label>Question: 7</ion-label>
+        <canvas #doughnutCanvas6></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart7">
+          <ion-label>Question: 8</ion-label>
+        <canvas #doughnutCanvas7></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart8">
+          <ion-label>Question: 9</ion-label>
+        <canvas #doughnutCanvas8></canvas>
+      </ion-card-content>
+    </ion-card>
+    <ion-card>
+      <ion-card-content [hidden]="!doughnutChart9">
+          <ion-label>Question: 10</ion-label>
+        <canvas #doughnutCanvas9></canvas>
       </ion-card-content>
     </ion-card>
 </ion-content>

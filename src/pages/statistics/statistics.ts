@@ -29,9 +29,27 @@ export class StatisticsPage {
     {value: 3, name: 'NS', backgroundColor: "#FA6A6A", hoverBackgroundColor: "#E91515"}
   ];
 
-  @ViewChild('doughnutCanvas') doughnutCanvas;
+  @ViewChild('doughnutCanvas0') doughnutCanvas0;
+  @ViewChild('doughnutCanvas1') doughnutCanvas1;
+  @ViewChild('doughnutCanvas2') doughnutCanvas2;
+  @ViewChild('doughnutCanvas3') doughnutCanvas3;
+  @ViewChild('doughnutCanvas4') doughnutCanvas4;
+  @ViewChild('doughnutCanvas5') doughnutCanvas5;
+  @ViewChild('doughnutCanvas6') doughnutCanvas6;
+  @ViewChild('doughnutCanvas7') doughnutCanvas7;
+  @ViewChild('doughnutCanvas8') doughnutCanvas8;
+  @ViewChild('doughnutCanvas9') doughnutCanvas9;
 
-  doughnutChart : any;
+  doughnutChart0 : any;
+  doughnutChart1 : any;
+  doughnutChart2 : any;
+  doughnutChart3 : any;
+  doughnutChart4 : any;
+  doughnutChart5 : any;
+  doughnutChart6 : any;
+  doughnutChart7 : any;
+  doughnutChart8 : any;
+  doughnutChart9 : any;
 
   chartData = null;
 
@@ -49,29 +67,31 @@ export class StatisticsPage {
     
     // Reference to our Firebase List
     this.ref = this.db.list('feedback', ref => ref.orderByChild('dealerId'));
-//    this.displayChart(0);
+    this.displayChart();
 
   }
 
-  displayChart(qnId) {
+  displayChart() {
     // Catch any update to draw the Chart
     this.ref.valueChanges().subscribe(result => {      
-      this.createCharts(result, qnId);
+      this.createCharts(result);
       })
   }
 
-  createCharts(data, qnId) {
-    this.clearCanvas(); // not happening
+  createCharts(data) {
     this.chartData = data;
    
     // Calculate Values for the Chart
     let chartData = this.getReportValues();
    
-    let i = 0;
+    var i = 0;
     for (let response of chartData) {
-      if(i == qnId) {
-        // Create the chart
-        this.doughnutChart = new Chart(this.doughnutCanvas.nativeElement, {
+      if(response[100] || response[75] || response[50] || response[25]) { 
+        var nativeElement;
+        if(i == 0) {
+          nativeElement = this.doughnutCanvas0.nativeElement;
+                  // Create the chart
+        this.doughnutChart0 = new Chart(nativeElement, {
           type: 'doughnut',
           data: {
             labels: Object.keys(this.answers).map(a => this.answers[a].name),
@@ -83,41 +103,145 @@ export class StatisticsPage {
             }]
           }
         });
-        break;
-      }
-      i++;
-    }
-  }
-  
-  clearCanvas() {
-    let context = this.doughnutCanvas.nativeElement.getContext('2d');
-          // Store the current transformation matrix
-      context.save();
-
-      // Use the identity matrix while clearing the canvas
-      context.setTransform(1, 0, 0, 1, 0, 0);
-      context.clearRect(0, 0, this.doughnutCanvas.width, this.doughnutCanvas.height);
-
-      // Restore the transform
-      context.restore();
-  }
-
-  updateCharts(data, qnId) {
-    this.chartData = data;
-    let chartData = this.getReportValues();
-   
-    let i = 0;
-    for (let response of chartData) {
-      if(i == qnId) {
-        // Update our dataset
-        this.doughnutChart.data.datasets.forEach((dataset) => {
-          dataset.data = response
+        } else if(i == 1) {
+          nativeElement = this.doughnutCanvas1.nativeElement;
+                  // Create the chart
+        this.doughnutChart1 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
         });
+        } else if(i == 2) {
+          nativeElement = this.doughnutCanvas2.nativeElement;
+                  // Create the chart
+        this.doughnutChart2 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 3) {
+          nativeElement = this.doughnutCanvas3.nativeElement;
+                  // Create the chart
+        this.doughnutChart3 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 4) {
+          nativeElement = this.doughnutCanvas4.nativeElement;
+                  // Create the chart
+        this.doughnutChart4 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 5) {
+          nativeElement = this.doughnutCanvas5.nativeElement;
+                  // Create the chart
+        this.doughnutChart5 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 6) {
+          nativeElement = this.doughnutCanvas6.nativeElement;
+                  // Create the chart
+        this.doughnutChart6 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 7) {
+          nativeElement = this.doughnutCanvas7.nativeElement;
+        // Create the chart
+        this.doughnutChart7 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 8) {
+          nativeElement = this.doughnutCanvas8.nativeElement;
+        // Create the chart
+        this.doughnutChart8 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        } else if(i == 9) {
+          nativeElement = this.doughnutCanvas9.nativeElement;
+        // Create the chart
+        this.doughnutChart9 = new Chart(nativeElement, {
+          type: 'doughnut',
+          data: {
+            labels: Object.keys(this.answers).map(a => this.answers[a].name),
+            datasets: [{
+              label: '# of Votes',
+              data: [response[100], response[75], response[50], response[25]],
+              backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
+              hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
+            }]
+          }
+        });
+        }   
+        i++;  
       }
-      this.doughnutChart.update();
-      break;
     }
-    i++;
   }
   
   getReportValues() {
@@ -126,7 +250,12 @@ export class StatisticsPage {
       1: {100: null, 75: null, 50: null, 25: null},
       2: {100: null, 75: null, 50: null, 25: null},
       3: {100: null, 75: null, 50: null, 25: null},
-      4: {100: null, 75: null, 50: null, 25: null}
+      4: {100: null, 75: null, 50: null, 25: null},
+      5: {100: null, 75: null, 50: null, 25: null},
+      6: {100: null, 75: null, 50: null, 25: null},
+      7: {100: null, 75: null, 50: null, 25: null},
+      8: {100: null, 75: null, 50: null, 25: null},
+      9: {100: null, 75: null, 50: null, 25: null}
     };
    
     let data = this.chartData;
