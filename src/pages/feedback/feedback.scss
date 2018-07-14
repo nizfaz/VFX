@@ -1,33 +1,37 @@
 page-feedback {
 
     .toolbar-background {
-        background: #fff;
-        border-color: transparent;
+      background: rgb(218, 200, 200);
+      border-color: transparent;
       }
     
       .slide-zoom {
-        height: 100%;
+        margin-top: 2.0rem;
+        color: #1c1a8d;
       }
     
       .slide-title {
-        margin-top: 2.8rem;
+        margin-top: 1.0rem;
+        font-size: 18px;
       }
     
       .slide-image {
         max-height: 50%;
         max-width: 60%;
         margin: 18px 0;
+        color: #1c1a8d;
       }
     
       b {
         font-weight: 500;
+        color: #000000;
       }
     
       p {
         padding: 0 40px;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 1.5;
-        color: #60646B;
+        color: rgb(75, 78, 83);
     
         b {
           color: #000000;

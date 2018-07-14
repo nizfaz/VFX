@@ -6,20 +6,19 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Feedback Statistics</ion-title>
+    <ion-title>Statistics</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content> 
-    <ion-label>Select a Question</ion-label>
-    <ion-item>
-        <ion-select  [(ngModel)]="question" [multiple]="false">
+   <ion-item>
+      <ion-select placeholder="Questions" [(ngModel)]="question" [multiple]="false">
           <ion-option *ngFor="let question of questionList | async" [value] = "question.qn" (ionSelect)="displayChart(question.qnId)">{{question.qn}}</ion-option>
       </ion-select>
     </ion-item>
