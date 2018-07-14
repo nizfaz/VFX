@@ -6,7 +6,7 @@
 -->
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="primary">
     <ion-title>Add Question</ion-title>
   </ion-navbar>
 
@@ -15,8 +15,8 @@
 
 <ion-content padding>
   <input type="hidden" [(ngModel)]="question.id" />
-    <ion-item>
-      <ion-label stacked>Question</ion-label>
+    <ion-item class="Absolute-Center">
+      
       <ion-input [(ngModel)]="question.qn" type="text" placeholder="Fill your question"></ion-input>
     </ion-item>
     <button ion-button color="primary" (click)="addQuestion(question.id, question.qn)"> 
