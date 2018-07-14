@@ -12,27 +12,30 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
+import { UserDataProvider } from '../providers/user-data/user-data';
 
 import {AddDealerPage} from '../pages/add-dealer/add-dealer';
 import { AddProdUserPage } from '../pages/add-prod-user/add-prod-user';
 import { AddQuestionPage } from '../pages/add-question/add-question';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 import {ContactusPage} from '../pages/contactus/contactus';
 import { CustomersCommentsPage } from '../pages/customers-comments/customers-comments';
-import {DealersQueryPage} from '../pages/dealers-query/dealers-query';
+import { DealerSupportPage } from '../pages/dealer-support/dealer-support';
 import {DealerUsersPage} from '../pages/dealer-users/dealer-users';
 import {FeedbackPage} from '../pages/feedback/feedback';
 import {HelpPage} from '../pages/help/help';
 import {HomePage} from '../pages/home/home';
-import {ListPage} from '../pages/list/list';
 import {LoginPage} from '../pages/login/login';
 import {ProdUsersPage} from '../pages/prod-users/prod-users';
 import {QuestionsPage} from '../pages/questions/questions';
 import { ReportPage } from '../pages/report/report';
 import {SettingsPage} from '../pages/settings/settings';
 import {StatisticsPage} from '../pages/statistics/statistics';
+import { UserInfoPage } from '../pages/user-info/user-info';
 import {UsersPage} from '../pages/users/users';
 import {ThankyouPage} from '../pages/thankyou/thankyou';
 import { HttpModule } from '@angular/http';
+import { SortPipe } from '../pipes/sort/sort';
 
 @NgModule({
   declarations: [
@@ -40,22 +43,24 @@ import { HttpModule } from '@angular/http';
     AddDealerPage,
     AddProdUserPage,
     AddQuestionPage,
+    ChangePasswordPage,
     ContactusPage,
     CustomersCommentsPage,
-    DealersQueryPage,
+    DealerSupportPage,
     DealerUsersPage,
     FeedbackPage,
     HelpPage,
     HomePage,
-    ListPage,
     LoginPage,
     ProdUsersPage,
     QuestionsPage,
     ReportPage,
     SettingsPage,
     StatisticsPage,
+    UserInfoPage,
     UsersPage,
-    ThankyouPage
+    ThankyouPage,
+    SortPipe
   ],
   imports: [
     HttpClientModule,
@@ -72,20 +77,21 @@ import { HttpModule } from '@angular/http';
     AddDealerPage,
     AddProdUserPage,
     AddQuestionPage,
+    ChangePasswordPage,
     ContactusPage,
     CustomersCommentsPage,
-    DealersQueryPage,
+    DealerSupportPage,
     DealerUsersPage,
     FeedbackPage,
     HelpPage,
     HomePage,
-    ListPage,
     LoginPage,
     ProdUsersPage,
     QuestionsPage,
     ReportPage,
     SettingsPage,
     StatisticsPage,
+    UserInfoPage,
     UsersPage,
     ThankyouPage
   ],
@@ -94,7 +100,8 @@ import { HttpModule } from '@angular/http';
         HttpModule,
      SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    UserDataProvider
   ]
 })
 export class AppModule {}
