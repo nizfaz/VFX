@@ -17,11 +17,14 @@
 
 
 <ion-content>
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
     <ion-list>
-        <ion-item-sliding *ngFor="let comment of comments">
+        <ion-item-sliding *ngFor="let suggestion of suggestionsList | sort: {property: column, order: order}">
             <ion-item text-wrap>
                 <ion-icon name="book" danger item-left></ion-icon>
-                <h2>{{comment}}</h2>
+                <h2> For Dealer: {{ suggestion.dealerId }} </h2>
+                <h3> Comment: <strong>{{ suggestion.suggestions }}</strong></h3>
+                <h2> Date: {{suggestion.feedbackDate | date:'short'}} </h2>
             </ion-item>
         </ion-item-sliding>
     </ion-list>

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 /**
- * Generated class for the DealersQueryPage page.
+ * Generated class for the UserInfoPage page.
  *
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
@@ -10,16 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 @IonicPage()
 @Component({
-  selector: 'page-dealers-query',
-  templateUrl: 'dealers-query.html',
+  selector: 'page-user-info',
+  templateUrl: 'user-info.html',
 })
-export class DealersQueryPage {
+export class UserInfoPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad DealersQueryPage');
+    console.log('ionViewDidLoad UserInfoPage');
   }
 
 }

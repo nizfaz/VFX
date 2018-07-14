@@ -7,6 +7,9 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { ServerValue } from '../../../node_modules/@firebase/database';
 import { ThankyouPage } from '../thankyou/thankyou';
 import { Observable } from '../../../node_modules/rxjs';
+import { UserInfoPage } from '../user-info/user-info';
+import { ChangePasswordPage } from '../change-password/change-password';
+import { UserDataProvider } from '../../providers/user-data/user-data';
 /**
  * Generated class for the SettingsPage page.
  *
@@ -20,64 +23,32 @@ import { Observable } from '../../../node_modules/rxjs';
   templateUrl: 'settings.html',
 })
 export class SettingsPage {
-  feedback = {};
-  responses = {};
-  scale: any;
-  suggestions : any;
-  public feedbackList:AngularFireList<any>;
-  public questionsRef:AngularFireList<any>;
-  questionsList: Observable<any>;
+  public userRef:AngularFireList<any>;
+  keyedId = null;
 
-  constructor(public navCtrl: NavController,   private authProvider: AuthProvider,public afd: AngularFireDatabase, public navParams: NavParams) {
-    this.feedbackList = afd.list('/feedback');
+  dbName = null;
+  dbPwd = null;
+  language = null;
 
-    this.questionsRef = this.afd.list('/questions');
-    this.questionsList = this.questionsRef.snapshotChanges().map(
-      changes => {
-        return changes.map(c => ({
-          key: c.payload.key, ...c.payload.val()
-        }))        
-      });
+  tab1Root: any = UserInfoPage;
+  tab2Root: any = ChangePasswordPage;
+
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase
+    , private authProvider: AuthProvider, public userData: UserDataProvider) {
+    let userId = parseInt(authProvider.currentUser.id);
+    // Get a reference to the database service
+    this.userRef = this.afd.list('/users', ref => ref.orderByChild('userId').equalTo(userId));
+    this.userRef.snapshotChanges().subscribe(result => this.userData.key = result[0].key);    
+    this.userRef.valueChanges().subscribe(result => this.getUserDetails(result));    
+    this.userData.userDBRef = this.userRef;
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad SettingsPage');
+  getUserDetails(data) {
+    if(data.length > 0) {
+      this.userData.userName = data[0].name;
+      this.userData.password = data[0].password;
+      this.userData.language = data[0].language;
+    }
   }
-  changePassword(){
-    if(this.responses) { // TODO: Validation should be done for all the questions
-      if(typeof this.suggestions == 'undefined'){
-        this.suggestions = "";
-      }
-  
-      this.feedbackList.push({
-        dealerName: this.authProvider.currentUser.name,
-        feedbackDate: ServerValue.TIMESTAMP,
-        suggestions: this.suggestions,
-        responses: this.responses
-      }).then( newProdUser => {
-        this.navCtrl.setRoot(ThankyouPage);;
-      }),error => {
-        console.log(error);
-      }; 
-  
-      this.questionsList.subscribe(competitor => console.log(competitor))        
-    }  
-  }
-}
-  //  matchOtherValidator(otherControlName: string): ValidatorFn {
-  //     return (control: AbstractControl): { [key: string]: any } => {
-  //         const otherControl: AbstractControl = control.root.get(otherControlName);
-  
-  //         if (otherControl) {
-  //             const subscription: Subscription = otherControl
-  //                 .valueChanges
-  //                 .subscribe(() => {
-  //                     control.updateValueAndValidity();
-  //                     subscription.unsubscribe();
-  //                 });
-  //         }
-  
-  //         return (otherControl && control.value !== otherControl.value) ? {match: true} : null;
-  //     };
-  // }
- 
+
+} 

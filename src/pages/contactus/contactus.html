@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Contact Us</ion-title>
+    <ion-title>Contact Prod</ion-title>
   </ion-navbar>
 </ion-header>
  
@@ -19,13 +19,13 @@
     <ion-item>
         <ion-label fixed>Email</ion-label>
         
-         <ion-input type="text"  [(ngModel)]="suggestions"  placeholder="please enter your email Id"></ion-input>
+         <ion-input type="text"  [(ngModel)]="mailId"  placeholder="Your Email Id"></ion-input>
         </ion-item>
     <ion-item>
         <ion-label fixed>Your Message</ion-label>
-        <ion-textarea type="text" placeholder="Comments">       </ion-textarea>
+        <ion-textarea type="text"  [(ngModel)]="question">       </ion-textarea>
     </ion-item>
-    <button ion-button full (click)='submitFeedback();'> Submit</button>
+    <button ion-button full (click)='submitQuestion();'> Submit</button>
 
 
 </ion-list>
