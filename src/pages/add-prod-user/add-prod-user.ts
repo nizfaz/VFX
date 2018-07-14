@@ -37,7 +37,7 @@ export class AddProdUserPage {
   addProdUser(id, name, language) {
     let newUserId = 500001;
     if(this.dbUserId) {
-      newUserId = this.dbUserId + 1;
+      newUserId += this.dbUserId;
     }
     if(id) {
       this.prodUserList.update(id, {

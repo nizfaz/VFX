@@ -37,7 +37,7 @@ export class AddDealerPage {
   addDealer(id, name, language) {
     let newUserId = 100001;
     if(this.dbUserId) {
-      newUserId = this.dbUserId + 1;
+      newUserId += this.dbUserId;
     }
     if(id) {
       this.dealerList.update(id, {
