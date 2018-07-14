@@ -12,10 +12,12 @@ import { MyApp } from './app.component';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { AuthProvider } from '../providers/auth/auth';
+import { UserDataProvider } from '../providers/user-data/user-data';
 
 import {AddDealerPage} from '../pages/add-dealer/add-dealer';
 import { AddProdUserPage } from '../pages/add-prod-user/add-prod-user';
 import { AddQuestionPage } from '../pages/add-question/add-question';
+import { ChangePasswordPage } from '../pages/change-password/change-password';
 import {ContactusPage} from '../pages/contactus/contactus';
 import { CustomersCommentsPage } from '../pages/customers-comments/customers-comments';
 import { DealerSupportPage } from '../pages/dealer-support/dealer-support';
@@ -29,6 +31,7 @@ import {QuestionsPage} from '../pages/questions/questions';
 import { ReportPage } from '../pages/report/report';
 import {SettingsPage} from '../pages/settings/settings';
 import {StatisticsPage} from '../pages/statistics/statistics';
+import { UserInfoPage } from '../pages/user-info/user-info';
 import {UsersPage} from '../pages/users/users';
 import {ThankyouPage} from '../pages/thankyou/thankyou';
 import { HttpModule } from '@angular/http';
@@ -40,6 +43,7 @@ import { SortPipe } from '../pipes/sort/sort';
     AddDealerPage,
     AddProdUserPage,
     AddQuestionPage,
+    ChangePasswordPage,
     ContactusPage,
     CustomersCommentsPage,
     DealerSupportPage,
@@ -53,6 +57,7 @@ import { SortPipe } from '../pipes/sort/sort';
     ReportPage,
     SettingsPage,
     StatisticsPage,
+    UserInfoPage,
     UsersPage,
     ThankyouPage,
     SortPipe
@@ -72,6 +77,7 @@ import { SortPipe } from '../pipes/sort/sort';
     AddDealerPage,
     AddProdUserPage,
     AddQuestionPage,
+    ChangePasswordPage,
     ContactusPage,
     CustomersCommentsPage,
     DealerSupportPage,
@@ -85,6 +91,7 @@ import { SortPipe } from '../pipes/sort/sort';
     ReportPage,
     SettingsPage,
     StatisticsPage,
+    UserInfoPage,
     UsersPage,
     ThankyouPage
   ],
@@ -93,7 +100,8 @@ import { SortPipe } from '../pipes/sort/sort';
         HttpModule,
      SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    AuthProvider
+    AuthProvider,
+    UserDataProvider
   ]
 })
 export class AppModule {}
