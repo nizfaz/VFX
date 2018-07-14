@@ -6,14 +6,14 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>Dealer Users</ion-title>
     <ion-buttons end>
       <button (click)="addDealer()">
-        <ion-icon name="person-add"></ion-icon>
+        <ion-icon name="add"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>
@@ -25,7 +25,7 @@
     <ion-list>
         <ion-item-sliding *ngFor="let dealer of dealerList | async">
             <ion-item>
-                <ion-icon name="person" danger item-left></ion-icon>
+                <ion-icon name="book" danger item-left></ion-icon>
                 <h2>Id: {{dealer.userId}}</h2>
                 <h2>Name: {{dealer.name}}</h2>
             </ion-item>

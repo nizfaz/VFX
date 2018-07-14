@@ -17,10 +17,7 @@ import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 })
 export class LoginPage {
 
-  user = {
-    name: 'user',
-    pw: 'user'
-  };
+  public userRef:AngularFireList<any>;
 
   keyedId = null;
   keyedPwd = null;

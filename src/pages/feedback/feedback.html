@@ -6,11 +6,11 @@
 -->
 <ion-header>
 
-  <ion-navbar color="primary">
+  <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title color="secondary">Feedback</ion-title>
+    <ion-title>Customer Feedback</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -19,28 +19,28 @@
   <ion-slides #pager >
     <ion-slide *ngFor="let question of questionsList | async; let indx = index;"> 
       <h2 class="slide-title">Question {{indx + 1}}</h2>
-      <h2><p [innerHTML]="question.qn"></p></h2>
-      <ion-col radio-group [(ngModel)]="scale" color="primary">
+      <h4><p [innerHTML]="question.qn"></p></h4>
+      <ion-col radio-group [(ngModel)]="scale">
           <ion-col>
-            <ion-item color="primary">
+            <ion-item>
               <ion-label>Very Good</ion-label>
               <ion-radio value="100" (ionSelect)="resSelected(this.indx, 100)"></ion-radio>
             </ion-item>
           </ion-col>
           <ion-col>
-            <ion-item color="primary">
+            <ion-item>
              <ion-label>Good</ion-label>
               <ion-radio value="75" (ionSelect)="resSelected(this.indx, 75)"></ion-radio>
             </ion-item>
           </ion-col>
           <ion-col> 
-              <ion-item color="primary">
+              <ion-item>
                <ion-label>Satisfactory</ion-label>
                 <ion-radio value="50" (ionSelect)="resSelected(this.indx, 50)"></ion-radio>
               </ion-item>
             </ion-col>
             <ion-col>
-                <ion-item color="primary"> 
+                <ion-item>
                  <ion-label>Not Satisfactory</ion-label>
                   <ion-radio value="25" (ionSelect)="resSelected(this.indx, 25)"></ion-radio>
                 </ion-item>
@@ -48,8 +48,10 @@
         </ion-col>
     </ion-slide>
     <ion-slide>
-       <h4 class="slide-title">Improvement suggestions</h4>
-      <ion-item  color="light"> 
+      <ion-toolbar>
+      </ion-toolbar>
+      <h4 class="slide-title">Improvement suggestions</h4>
+      <ion-item> 
           <ion-textarea type="text"  [(ngModel)]="suggestions" [ngModelOptions]="{standalone: true}" 
           class="page-feedback"></ion-textarea>
         </ion-item>
