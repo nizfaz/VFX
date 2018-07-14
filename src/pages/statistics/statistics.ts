@@ -23,10 +23,10 @@ export class StatisticsPage {
   questionList: Observable<any[]>;
 
   answers = [
-    {value: 0, name: 'VG', backgroundColor: 'rgba(255, 99, 132, 0.2)', hoverBackgroundColor: "#FF6384"},
-    {value: 1, name: 'G', backgroundColor: 'rgba(54, 162, 235, 0.2)', hoverBackgroundColor: "#36A2EB"},
-    {value: 2, name: 'S', backgroundColor: 'rgba(255, 206, 86, 0.2)', hoverBackgroundColor: "#FFCE56"},
-    {value: 3, name: 'NS', backgroundColor: 'rgba(75, 192, 192, 0.2)', hoverBackgroundColor: "#FF6384"}
+    {value: 0, name: 'VG', backgroundColor: "#6ED06A", hoverBackgroundColor: "#0B9A06"},
+    {value: 1, name: 'G', backgroundColor: "#79A9E8", hoverBackgroundColor: "#0B5FCB"},
+    {value: 2, name: 'S', backgroundColor: "#FAF675", hoverBackgroundColor: "#E6E01C"},
+    {value: 3, name: 'NS', backgroundColor: "#FA6A6A", hoverBackgroundColor: "#E91515"}
   ];
 
   @ViewChild('doughnutCanvas') doughnutCanvas;

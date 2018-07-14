@@ -12,6 +12,7 @@ import { AngularFireList } from 'angularfire2/database';
 export class UserDataProvider {
 
   public key: any;
+  public userId: any;
   public userName: any;
   public password: any;
   public language: any;

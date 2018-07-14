@@ -18,8 +18,15 @@ import { UserDataProvider } from '../../providers/user-data/user-data';
 export class UserInfoPage {
   public userRef:AngularFireList<any>;
 
+  userId = null;
+  userName = null;
+  language = null;
+
   constructor(public navCtrl: NavController, public userData: UserDataProvider, public navParams: NavParams) {
     this.userRef = this.userData.userDBRef;
+    this.userId = this.userData.userId;
+    this.userName = this.userData.userName
+    this.language = this.userData.language;
   }
 
   ionViewDidLoad() {

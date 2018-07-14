@@ -24,7 +24,6 @@ import { UserDataProvider } from '../../providers/user-data/user-data';
 })
 export class SettingsPage {
   public userRef:AngularFireList<any>;
-  keyedId = null;
 
   dbName = null;
   dbPwd = null;
@@ -45,6 +44,7 @@ export class SettingsPage {
 
   getUserDetails(data) {
     if(data.length > 0) {
+      this.userData.userId = this.authProvider.currentUser.id;
       this.userData.userName = data[0].name;
       this.userData.password = data[0].password;
       this.userData.language = data[0].language;
