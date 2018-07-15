@@ -2,7 +2,6 @@ import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams, Slides, AlertController, LoadingController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { ServerValue } from '../../../node_modules/@firebase/database';
 import { ThankyouPage } from '../thankyou/thankyou';
 import { Observable } from '../../../node_modules/rxjs';
 

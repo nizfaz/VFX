@@ -1,12 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AbstractControl, ValidatorFn } from '@angular/forms';
-import { Subscription } from 'rxjs/Subscription';
+import { IonicPage, NavController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
-import { ServerValue } from '../../../node_modules/@firebase/database';
-import { ThankyouPage } from '../thankyou/thankyou';
-import { Observable } from '../../../node_modules/rxjs';
 import { UserInfoPage } from '../user-info/user-info';
 import { ChangePasswordPage } from '../change-password/change-password';
 import { UserDataProvider } from '../../providers/user-data/user-data';

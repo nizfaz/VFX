@@ -32,7 +32,6 @@ export class ChangePasswordPage {
   }
 
   changePassword() {
-    let dbPassword = this.userData.password;
     if (this.userData.password === this.currentPassword) {
       if(this.newPassword === this.confirmPassword) {
         if(this.userData.key) {

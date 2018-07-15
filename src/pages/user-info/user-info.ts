@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, LoadingController, App, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController, AlertController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { UserDataProvider } from '../../providers/user-data/user-data';
 import { AuthProvider } from '../../providers/auth/auth';
@@ -23,9 +23,9 @@ export class UserInfoPage {
   userName = null;
   language = null;
 
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase, public loading: LoadingController,
-    private authProvider: AuthProvider, public userData: UserDataProvider, public navParams: NavParams,
-    private alertCtrl: AlertController) {
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase, 
+    public loading: LoadingController, private authProvider: AuthProvider, 
+    public userData: UserDataProvider, private alertCtrl: AlertController) {
   }
 
   ionViewDidLoad() {

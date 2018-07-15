@@ -27,8 +27,7 @@ export class CustomersCommentsPage {
   order: number;
   column: string = 'feedbackDate';
     
-  constructor(public navCtrl: NavController, private db: AngularFireDatabase,
-    public loading: LoadingController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public loading: LoadingController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
