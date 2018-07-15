@@ -18,7 +18,7 @@ import { DealerSupportPage } from '../dealer-support/dealer-support';
 export class HomePage {
 
   rootPage: any;
-  pages: Array<{title: string, page: any}>;
+  pages: Array<{title: string, page: any, icon: any}>;
   username = '';
  
   // Reference to the side menus root nav
@@ -31,19 +31,19 @@ export class HomePage {
   ionViewWillEnter() {
     if (this.authProvider.isAdmin()) {
       this.pages = [
-        { title: 'Report', page: ReportPage },
-        { title: 'Users', page: UsersPage },
-        { title: 'Questions', page: QuestionsPage },
-        { title: 'Dealer Support', page: DealerSupportPage },
-        { title: 'Settings', page: SettingsPage },
+        { title: 'Report', page: ReportPage, icon: 'document' },
+        { title: 'Users', page: UsersPage, icon: 'people' },
+        { title: 'Questions', page: QuestionsPage, icon: 'help-circle' },
+        { title: 'MSC Comments', page: DealerSupportPage, icon: 'text' },
+        { title: 'Settings', page: SettingsPage, icon: 'settings' },
         ];
       this.openPage(ReportPage);
     } else {
       this.pages = [
-        { title: 'Feedback', page: FeedbackPage },
-        { title: 'Settings', page: SettingsPage },
-        { title: 'FAQs', page: HelpPage },
-        { title: 'Contact Us', page: ContactusPage },
+        { title: 'Feedback', page: FeedbackPage, icon: 'alert' },
+        { title: 'Settings', page: SettingsPage, icon: 'settings' },
+        { title: 'FAQs', page: HelpPage, icon: 'paper' },
+        { title: 'Contact Prod', page: ContactusPage, icon: 'mail-open' },
         ];
       this.openPage(FeedbackPage);
     }

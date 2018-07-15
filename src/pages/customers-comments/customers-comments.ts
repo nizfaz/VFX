@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import * as firebase from 'firebase';
 
@@ -27,24 +27,35 @@ export class CustomersCommentsPage {
   order: number;
   column: string = 'feedbackDate';
     
-  constructor(public navCtrl: NavController, private db: AngularFireDatabase, public navParams: NavParams) {
-    this.dbRef = firebase.database().ref('/feedback');
+  constructor(public navCtrl: NavController, private db: AngularFireDatabase,
+    public loading: LoadingController, public navParams: NavParams) {
+  }
 
-    this.dbRef.on('value', suggestionsList => {
-      let suggestions = [];
-      suggestionsList.forEach( suggestion => {
-        let suggestionVal = suggestion.child('suggestions').val();
-        suggestionVal.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); // to avoid displaying empty suggestions
-        if(suggestionVal) {
-          suggestions.push(suggestion.val());
-        }
-        return false;
-      });
-    
-      this.suggestionsList = suggestions;
-      this.loadedSuggestionsList = suggestions;
+  ionViewDidLoad() {
+    let loader = this.loading.create({
+      content: '',
     });
-    this.sort();
+  
+    loader.present().then(() => {
+      this.dbRef = firebase.database().ref('/feedback');
+
+      this.dbRef.on('value', suggestionsList => {
+        let suggestions = [];
+        suggestionsList.forEach( suggestion => {
+          let suggestionVal = suggestion.child('suggestions').val();
+          suggestionVal.replace(/^\s\s*/, '').replace(/\s\s*$/, ''); // to avoid displaying empty suggestions
+          if(suggestionVal) {
+            suggestions.push(suggestion.val());
+          }
+          return false;
+        });
+      
+        this.suggestionsList = suggestions;
+        this.loadedSuggestionsList = suggestions;
+      });
+      this.sort();
+      loader.dismiss();
+    });
   }
 
   initializeItems(): void {

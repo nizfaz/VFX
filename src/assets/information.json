@@ -1,7 +1,7 @@
 {
     "items": [
         {
-            "name": "Question1",
+            "name": "Question 1",
             "children": [
                 {
                     "name": "How can i change my Password",
@@ -10,7 +10,7 @@
             ]
         },
         {
-            "name": "Question2",
+            "name": "Question 2",
             "children": [
                 {
                     "name": "Is this app store any customer details?",
@@ -20,11 +20,11 @@
       },
     
     {
-        "name": "Question3",
+        "name": "Question 3",
         "children": [
             {
-                "name": "Does the improvement suggested by customer visible for dealer",
-                 "information": " No the production team gets the sugeestion by customer and they will take collective action to improve customer satisfactions "
+                "name": "Does the improvement suggested by customers visible for Market Support Centre",
+                 "information": " No only the Production team gets to view the suggestions by customers and they will take collective action to improve customer satisfactions "
             }
         ]       
   }

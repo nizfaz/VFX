@@ -10,7 +10,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Dealer Support</ion-title>
+    <ion-title>Sales Comments</ion-title>
   </ion-navbar>
 
 </ion-header>
@@ -20,10 +20,10 @@
   <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
   <ion-list>
     <ion-item *ngFor="let dealerQuestion of dealerQuestionList | sort: {property: column, order: order}">
-      <h2> Dealer Id: {{ dealerQuestion.dealerId }} </h2>
-      <h2> Mail Id: {{ dealerQuestion.mailId }} </h2>
-      <h3> Question: <strong>{{ dealerQuestion.question }}</strong> </h3>
-      <h2> Date: {{dealerQuestion.submittedDate | date:'short'}} </h2>
+      <h2> <strong>MSC Id:</strong> {{ dealerQuestion.dealerId }} </h2>
+      <h2> <strong>Mail Id:</strong> {{ dealerQuestion.mailId }} </h2>
+      <h3> <strong>Question:</strong> {{ dealerQuestion.question }} </h3>
+      <h2> <strong>Date:</strong> {{dealerQuestion.submittedDate | date:'short'}} </h2>
     </ion-item>
   </ion-list>  
 </ion-content>

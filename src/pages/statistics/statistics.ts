@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController } from 'ionic-angular';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
 import { Chart } from 'chart.js';
@@ -53,21 +53,30 @@ export class StatisticsPage {
 
   chartData = null;
 
-  constructor(public navCtrl: NavController, private db: AngularFireDatabase, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, private db: AngularFireDatabase,
+    public loading: LoadingController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
+    let loader = this.loading.create({
+      content: '',
+    });
+  
+    loader.present().then(() => {
+
     this.questionsRef = this.db.list('questions');
-    this.questionList = this.questionsRef.snapshotChanges().map(
-      changes => {
-        return changes.map(c => ({
-          key: c.payload.key, ...c.payload.val()
-        }))
-      });
-    
-    // Reference to our Firebase List
-    this.ref = this.db.list('feedback', ref => ref.orderByChild('dealerId'));
-    this.displayChart();
+      this.questionList = this.questionsRef.snapshotChanges().map(
+        changes => {
+          return changes.map(c => ({
+            key: c.payload.key, ...c.payload.val()
+          }))
+        });
+      
+      // Reference to our Firebase List
+      this.ref = this.db.list('feedback', ref => ref.orderByChild('dealerId'));
+      this.displayChart();
+      loader.dismiss();
+    });
 
   }
 

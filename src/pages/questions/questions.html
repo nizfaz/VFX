@@ -24,7 +24,7 @@
 <ion-content>
     <ion-list>
         <ion-item-sliding *ngFor="let question of questionList | async">
-            <ion-item>
+            <ion-item text-wrap>
                 <ion-icon name="help-circle" danger item-left></ion-icon>
                 <h2>Question: {{question.qn}}</h2>
             </ion-item>

@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, Slides, AlertController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Slides, AlertController, LoadingController } from 'ionic-angular';
 import { AuthProvider } from '../../providers/auth/auth';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { ServerValue } from '../../../node_modules/@firebase/database';
@@ -28,23 +28,31 @@ export class FeedbackPage {
   public questionsRef:AngularFireList<any>;
   questionsList: Observable<any>;
 
-  constructor(public navCtrl: NavController, private alertCtrl: AlertController, private authProvider: AuthProvider,public afd: AngularFireDatabase, public navParams: NavParams) {
-    this.feedbackList = afd.list('/feedback');
-
-    this.questionsRef = this.afd.list('/questions');
-    this.questionsList = this.questionsRef.snapshotChanges().map(
-      changes => {
-        return changes.map(c => ({
-          key: c.payload.key, ...c.payload.val()
-        }))        
-      });
+  constructor(public navCtrl: NavController, private alertCtrl: AlertController, 
+    private authProvider: AuthProvider, public afd: AngularFireDatabase, 
+    public loading: LoadingController, public navParams: NavParams) {
   }
 
   @ViewChild('pager') slider: Slides;
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad FeedbackPage');
-  }
+    let loader = this.loading.create({
+      content: '',
+    });
+  
+    loader.present().then(() => {
+      this.feedbackList = this.afd.list('/feedback');
+
+      this.questionsRef = this.afd.list('/questions');
+      this.questionsList = this.questionsRef.snapshotChanges().map(
+        changes => {
+          return changes.map(c => ({
+            key: c.payload.key, ...c.payload.val()
+          }))        
+        });
+        loader.dismiss();
+    });
+    }
 
 
   resSelected(index, value){

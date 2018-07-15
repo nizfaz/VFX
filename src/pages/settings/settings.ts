@@ -37,8 +37,8 @@ export class SettingsPage {
     let userId = parseInt(authProvider.currentUser.id);
     // Get a reference to the database service
     this.userRef = this.afd.list('/users', ref => ref.orderByChild('userId').equalTo(userId));
-    this.userRef.snapshotChanges().subscribe(result => this.userData.key = result[0].key);    
     this.userRef.valueChanges().subscribe(result => this.getUserDetails(result));    
+    this.userRef.snapshotChanges().subscribe(result => this.userData.key = result[0].key);    
     this.userData.userDBRef = this.userRef;
   }
 
