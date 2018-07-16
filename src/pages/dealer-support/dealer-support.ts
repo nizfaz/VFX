@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 import * as firebase from 'firebase';
 
 /**
@@ -24,20 +24,32 @@ export class DealerSupportPage {
   order: number;
   column: string = 'submittedDate';
     
-  constructor(public navCtrl: NavController) {
-    this.dbRef = firebase.database().ref('/contactProd');
+  constructor(public navCtrl: NavController, public loading: LoadingController) {
+  }
 
-    this.dbRef.on('value', dealerQuestionList => {
-      let questions = [];
-      dealerQuestionList.forEach( question => {
-        questions.push(question.val());
-        return false;
-      });
-    
-      this.dealerQuestionList = questions;
-      this.loadedDealerQuestionList = questions;
+  ionViewDidLoad() {
+    let loader = this.loading.create({
+      content: '',
     });
-    this.sort();
+  
+    loader.present().then(() => {
+      this.dbRef = firebase.database().ref('/contactProd');
+
+      this.dbRef.on('value', dealerQuestionList => {
+        let questions = [];
+        dealerQuestionList.forEach( question => {
+          questions.push(question.val());
+          return false;
+        });
+      
+        this.dealerQuestionList = questions;
+        this.loadedDealerQuestionList = questions;
+      });
+      this.sort();
+          setTimeout(() => {
+          loader.dismiss();
+        }, 2000);
+    });
   }
 
   initializeItems(): void {
@@ -71,9 +83,4 @@ export class DealerSupportPage {
     //this.descending = !this.descending;
     this.order = this.descending ? 1 : -1;
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DealerSupportPage');
-  }
-
 }

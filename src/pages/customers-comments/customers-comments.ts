@@ -53,8 +53,10 @@ export class CustomersCommentsPage {
         this.loadedSuggestionsList = suggestions;
       });
       this.sort();
-      loader.dismiss();
-    });
+      setTimeout(() => {
+        loader.dismiss();
+      }, 2000);
+  });
   }
 
   initializeItems(): void {

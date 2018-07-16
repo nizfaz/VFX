@@ -49,7 +49,11 @@ export class FeedbackPage {
             key: c.payload.key, ...c.payload.val()
           }))        
         });
-        loader.dismiss();
+ 
+        setTimeout(() => {
+          loader.dismiss();
+        }, 2000);
+                
     });
     }
 

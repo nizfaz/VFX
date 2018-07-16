@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController } from 'ionic-angular';
+import { IonicPage, NavController, LoadingController } from 'ionic-angular';
 import { AddDealerPage } from '../add-dealer/add-dealer';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import { Observable } from 'rxjs';
@@ -21,15 +21,28 @@ export class DealerUsersPage {
   dealersRef: AngularFireList<any>;
   dealerList: Observable<any[]>;
 
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase) {   
-    this.dealersRef = afd.list('/users', ref => ref.orderByChild('isAdmin').equalTo(0));
-    this.dealerList = this.dealersRef.snapshotChanges().map(
-      changes => {
-        return changes.map(c => ({
-          key: c.payload.key, ...c.payload.val()
-        }))
-      });
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase, public loading: LoadingController) {   
   }
+
+  ionViewDidLoad() {
+    let loader = this.loading.create({
+      content: '',
+    });
+  
+    loader.present().then(() => {
+      this.dealersRef = this.afd.list('/users', ref => ref.orderByChild('isAdmin').equalTo(0));
+      this.dealerList = this.dealersRef.snapshotChanges().map(
+      changes => {
+          return changes.map(c => ({
+            key: c.payload.key, ...c.payload.val()
+          }))
+        });
+          setTimeout(() => {
+          loader.dismiss();
+        }, 2000);
+    });
+  }
+
 
   addDealer(){
     this.navCtrl.push(AddDealerPage);
@@ -46,9 +59,4 @@ export class DealerUsersPage {
   deleteDealer(dealer) {
     this.dealersRef.remove(dealer.key);
   }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DealerUsersPage');
-  }
-
 }

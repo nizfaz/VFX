@@ -75,8 +75,10 @@ export class StatisticsPage {
       // Reference to our Firebase List
       this.ref = this.db.list('feedback', ref => ref.orderByChild('dealerId'));
       this.displayChart();
-      loader.dismiss();
-    });
+      setTimeout(() => {
+        loader.dismiss();
+      }, 2000);
+  });
 
   }
 
