@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams, AlertController } from 'ionic-angular';
+import { NavController, NavParams, AlertController, ToastController } from 'ionic-angular';
 import { AuthProvider } from './../../providers/auth/auth';
 import { HomePage } from '../home/home';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
@@ -28,14 +28,29 @@ export class LoginPage {
 
   firstLogin = true;
 
-  constructor(public navCtrl: NavController, public afd: AngularFireDatabase, private authProvider: AuthProvider, private alertCtrl: AlertController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public afd: AngularFireDatabase, 
+    private authProvider: AuthProvider, private toast: ToastController, public navParams: NavParams) {
   }
 
   loginUser() {
-    let userId = parseInt(this.keyedId);
-    // Get a reference to the database service
-    this.userRef = this.afd.list('/users', ref => ref.orderByChild('userId').equalTo(userId));
-    this.userRef.valueChanges().subscribe(result => this.getUserDetails(result));    
+    if(this.keyedId != null && this.keyedPwd != null) {
+      if(!isNaN(this.keyedId)) {
+        let userId = parseInt(this.keyedId);
+        // Get a reference to the database service
+        this.userRef = this.afd.list('/users', ref => ref.orderByChild('userId').equalTo(userId));
+        this.userRef.valueChanges().subscribe(result => this.getUserDetails(result));      
+      } else {
+        this.toast.create({
+          message: 'Invalid User Id',
+          duration: 3000
+        }).present();    
+      }        
+    } else {
+      this.toast.create({
+        message: 'User Id & Password must be entered',
+        duration: 3000
+      }).present();    
+    } 
   }
 
   getUserDetails(data) {
@@ -52,13 +67,15 @@ export class LoginPage {
           //setRoot will block displaying back button after login
           this.navCtrl.setRoot(HomePage);
           this.firstLogin = false;
+          this.toast.create({
+            message: 'Login Successful',
+            duration: 3000
+          }).present();    
         } else {
-          let alert = this.alertCtrl.create({
-            title: 'Login failed',
-            message: 'Please check your credentials',
-            buttons: ['OK']
-          });
-          alert.present();
+          this.toast.create({
+            message: 'Login Failed',
+            duration: 3000
+          }).present();    
         }
       });  
     }
