@@ -112,6 +112,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 1) {
@@ -127,6 +142,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 2) {
@@ -142,6 +172,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 3) {
@@ -157,6 +202,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 4) {
@@ -172,6 +232,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 5) {
@@ -187,6 +262,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 6) {
@@ -202,6 +292,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 7) {
@@ -217,6 +322,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 8) {
@@ -232,6 +352,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         } else if(i == 9) {
@@ -247,6 +382,21 @@ export class StatisticsPage {
               backgroundColor: Object.keys(this.answers).map(a => this.answers[a].backgroundColor),
               hoverBackgroundColor: Object.keys(this.answers).map(a => this.answers[a].hoverBackgroundColor)
             }]
+          },
+          options: {
+            tooltips: {
+              callbacks: {
+                label: function(tooltipItem, data) {
+                  var dataset = data.datasets[tooltipItem.datasetIndex];
+                  var total = dataset.data.reduce(function(previousValue, currentValue, currentIndex, array) {
+                    return previousValue + currentValue;
+                  });
+                  var currentValue = dataset.data[tooltipItem.index];
+                  var precentage = Math.floor(((currentValue/total) * 100)+0.5);         
+                  return precentage + "%";
+                }
+              }
+            }
           }
         });
         }   
@@ -273,8 +423,6 @@ export class StatisticsPage {
     for (let trans of data) {
       for (let transResponse of trans.responses) {
         let questionId = transResponse.questionId;
-        //let response = transResponse.response;
-        //let question = reportByAnswer[questionId];
         if (reportByAnswer[questionId]) {
           if(reportByAnswer[questionId][transResponse.response]) {
             reportByAnswer[questionId][transResponse.response] += 1;
