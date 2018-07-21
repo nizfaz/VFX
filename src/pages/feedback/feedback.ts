@@ -19,13 +19,14 @@ import { Observable } from '../../../node_modules/rxjs';
 })
 export class FeedbackPage {
 
+  responsesCount:number = 0;
   feedback = {};
   responses = {};
   scale: any;
   suggestions : any;
   public feedbackList:AngularFireList<any>;
   public questionsRef:AngularFireList<any>;
-  questionsList: Observable<any>;
+  questionsList: Observable<any>; 
 
   constructor(public navCtrl: NavController, private alertCtrl: AlertController, 
     private authProvider: AuthProvider, public afd: AngularFireDatabase, 
@@ -38,7 +39,7 @@ export class FeedbackPage {
     let loader = this.loading.create({
       content: '',
     });
-  
+
     loader.present().then(() => {
       this.feedbackList = this.afd.list('/feedback');
 
@@ -47,13 +48,14 @@ export class FeedbackPage {
         changes => {
           return changes.map(c => ({
             key: c.payload.key, ...c.payload.val()
-          }))        
+          }))
         });
  
         setTimeout(() => {
           loader.dismiss();
         }, 2000);
-                
+
+        this.questionsRef.snapshotChanges().map(list=>list.length).subscribe(length=>this.responsesCount=length);
     });
     }
 
@@ -68,7 +70,7 @@ export class FeedbackPage {
   }
 
   submitFeedback(){
-    if(this.responses) { // TODO: Validation should be done for all the questions
+    if(this.responsesCount ==  Object.keys(this.responses).length) {
       if(typeof this.suggestions == 'undefined'){
         this.suggestions = "";
       }
@@ -89,7 +91,7 @@ export class FeedbackPage {
         message: 'Please answer all the questions',
         buttons: ['OK']
       });
-      alert.present();  
+      alert.present();
     }
   }
 }
