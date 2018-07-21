@@ -31,12 +31,16 @@ import {QuestionsPage} from '../pages/questions/questions';
 import { ReportPage } from '../pages/report/report';
 import {SettingsPage} from '../pages/settings/settings';
 import {StatisticsPage} from '../pages/statistics/statistics';
+import { UploadFeedbackPage } from '../pages/upload-feedback/upload-feedback';
 import { UserInfoPage } from '../pages/user-info/user-info';
 import {UsersPage} from '../pages/users/users';
 import {ThankyouPage} from '../pages/thankyou/thankyou';
 import { HttpModule } from '@angular/http';
 import { SortPipe } from '../pipes/sort/sort';
 import { WordsPage } from '../pages/words/words';
+import {IonicStorageModule} from '@ionic/storage';
+import {Network} from '@ionic-native/network';
+import { NetworkProvider } from '../providers/network/network';
 
 @NgModule({
   declarations: [
@@ -58,6 +62,7 @@ import { WordsPage } from '../pages/words/words';
     ReportPage,
     SettingsPage,
     StatisticsPage,
+    UploadFeedbackPage,
     UserInfoPage,
     UsersPage,
     ThankyouPage,
@@ -71,7 +76,8 @@ import { WordsPage } from '../pages/words/words';
     IonicModule.forRoot(MyApp),
     AngularFireModule.initializeApp(environment.firebase, 'volvofeedbackapp'),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -93,6 +99,7 @@ import { WordsPage } from '../pages/words/words';
     ReportPage,
     SettingsPage,
     StatisticsPage,
+    UploadFeedbackPage,
     UserInfoPage,
     UsersPage,
     ThankyouPage,
@@ -104,7 +111,9 @@ import { WordsPage } from '../pages/words/words';
      SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     AuthProvider,
-    UserDataProvider
+    UserDataProvider,
+    Network,
+    NetworkProvider
   ]
 })
 export class AppModule {}

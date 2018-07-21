@@ -6,25 +6,25 @@
 -->
 <ion-header>
 
-    <ion-navbar color="primary">
-      <button ion-button menuToggle>
-        <ion-icon name="menu"></ion-icon>
-      </button>
-      <ion-title>MSC Comments</ion-title>
-    </ion-navbar>
+  <ion-navbar color="primary">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>MSC Comments</ion-title>
+  </ion-navbar>
   
   </ion-header>
   
   
   <ion-content>
-    <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
-    <ion-list>
-      <ion-item text-wrap *ngFor="let dealerQuestion of dealerQuestionList | sort: {property: column, order: order}">
-        <h2> <strong>MSC Id:</strong> {{ dealerQuestion.dealerId }} </h2>
-        <h2> <strong>Mail Id:</strong> {{ dealerQuestion.mailId }} </h2>
-        <h3> <strong>Question:</strong> {{ dealerQuestion.question }} </h3>
-        <h2> <strong>Date:</strong> {{dealerQuestion.submittedDate | date:'short'}} </h2>
-      </ion-item>
-    </ion-list>  
+  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-list>
+    <ion-item text-wrap *ngFor="let dealerQuestion of dealerQuestionList | sort: {property: column, order: order}">
+      <h2> <strong>MSC Id:</strong> {{ dealerQuestion.dealerId }} </h2>
+      <h2> <strong>Mail Id:</strong> {{ dealerQuestion.mailId }} </h2>
+      <h3> <strong>Question:</strong> {{ dealerQuestion.question }} </h3>
+      <h2> <strong>Date:</strong> {{dealerQuestion.submittedDate | date:'short'}} </h2>
+    </ion-item>
+  </ion-list>  
   </ion-content>
   

@@ -10,6 +10,7 @@ import { UsersPage } from '../users/users';
 import { QuestionsPage } from '../questions/questions';
 import { ReportPage } from '../report/report';
 import { DealerSupportPage } from '../dealer-support/dealer-support';
+import { UploadFeedbackPage } from '../upload-feedback/upload-feedback';
 
 @Component({
   selector: 'page-home',
@@ -40,6 +41,7 @@ export class HomePage {
       this.openPage(ReportPage);
     } else {
       this.pages = [
+        { title: 'Upload Feeback', page: UploadFeedbackPage, icon: 'document' },
         { title: 'Feedback', page: FeedbackPage, icon: 'alert' },
         { title: 'Settings', page: SettingsPage, icon: 'settings' },
         { title: 'FAQs', page: HelpPage, icon: 'paper' },

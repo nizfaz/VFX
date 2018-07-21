@@ -25,7 +25,7 @@ export class HelpPage {
     information: any[];
    
     constructor(public navCtrl: NavController, private http: Http) {
-      let localData = http.get('assets/information.json').map(res => res.json().items);
+      let localData = this.http.get('assets/information.json').map(res => res.json().items);
       localData.subscribe(data => {
         this.information = data;
       })
