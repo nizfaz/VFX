@@ -76,14 +76,28 @@ export class CustomersCommentsPage {
       return;
     }
   
+    let filterFound = false;
     this.suggestionsList = this.suggestionsList.filter((v) => {
       if(v.dealerId && q) {
         if (v.dealerId.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          filterFound = true;
           return true;
         }
-        return false;
       }
     });
+
+    if(!filterFound) {
+    // Reset items back to all of the items
+    this.initializeItems();
+      this.suggestionsList = this.suggestionsList.filter((value) => {
+        if(value.suggestions && q) {
+          if (value.suggestions.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+            return true;
+          }
+          return false;
+        }
+      });  
+    }
   }
 
   sort(){
