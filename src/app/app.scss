@@ -14,3 +14,16 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+
+.center {
+    background: #fafafa;
+    width: 70%;
+    padding: 20px 20px;
+    margin: 70px 30px;
+    display: inline-block;
+    border: 1px solid #e6e7e7;
+    border-color: #e6e7e7;
+    box-sizing: content-box;
+}
+
+.scroll-content { padding-bottom: 0!important; }

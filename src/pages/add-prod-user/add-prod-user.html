@@ -14,6 +14,7 @@
 
 
 <ion-content padding>
+  <div class="center">
     <input type="hidden" [(ngModel)]="prodUser.id" />
     <ion-item>
         <ion-label stacked>Name</ion-label>
@@ -23,7 +24,8 @@
         <ion-label stacked>Language</ion-label>
         <ion-input [(ngModel)]="prodUser.language" type="text" placeholder="Fill your language"></ion-input>
       </ion-item>
-      <button ion-button color="primary" (click)="addProdUser(prodUser.id, prodUser.name, prodUser.language)"> 
+      <button ion-button full color="primary" (click)="addProdUser(prodUser.id, prodUser.name, prodUser.language)"> 
         <span *ngIf="prodUser.id">Update Prod User</span><span *ngIf="!prodUser.id">Add Prod User</span> 
       </button>
+  </div>
 </ion-content>

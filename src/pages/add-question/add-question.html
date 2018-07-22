@@ -14,12 +14,14 @@
 
 
 <ion-content padding>
-  <input type="hidden" [(ngModel)]="question.id" />
-    <ion-item>
-      <ion-label stacked>Question</ion-label>
-      <ion-input [(ngModel)]="question.qn" type="text" placeholder="Fill your question"></ion-input>
-    </ion-item>
-    <button ion-button color="primary" (click)="addQuestion(question.id, question.qn)"> 
-      <span *ngIf="question.id">Update Question</span><span *ngIf="!question.id">Add Question</span> 
-    </button>
+  <div class="center">
+    <input type="hidden" [(ngModel)]="question.id" />
+      <ion-item>
+        <ion-label stacked>Question</ion-label>
+        <ion-input [(ngModel)]="question.qn" type="text" placeholder="Fill your question"></ion-input>
+      </ion-item>
+      <button ion-button full color="primary" (click)="addQuestion(question.id, question.qn)"> 
+        <span *ngIf="question.id">Update Question</span><span *ngIf="!question.id">Add Question</span> 
+      </button>
+  </div>
 </ion-content>

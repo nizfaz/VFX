@@ -15,17 +15,17 @@
 </ion-header>
  
 <ion-content>
-  <ion-list>
-    <ion-item>
-        <ion-label color="primary" stacked>Email</ion-label>
-        <ion-input type="text"  [(ngModel)]="mailId"></ion-input>
-        </ion-item>
-    <ion-item>
-        <ion-label color="primary" stacked>Type your Message</ion-label>
-        <ion-textarea type="text"  [(ngModel)]="question"></ion-textarea>
-    </ion-item>
-    <button ion-button full (click)='submitQuestion();'> Submit</button>
-
-
-</ion-list>
+  <div class="center">
+    <ion-list>
+      <ion-item>
+          <ion-label color="primary" stacked>Email</ion-label>
+          <ion-input type="text"  [(ngModel)]="mailId"></ion-input>
+          </ion-item>
+      <ion-item>
+          <ion-label color="primary" stacked>Type your Message</ion-label>
+          <ion-textarea type="text"  [(ngModel)]="question"></ion-textarea>
+      </ion-item>
+      <button ion-button full (click)='submitQuestion();'> Submit</button>
+    </ion-list>
+  </div>
 </ion-content>

@@ -5,23 +5,26 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="primary">    
-      <ion-title>VOLVO GROUP</ion-title>
+  <ion-navbar color="primary"> 
+      <div><img src="../../assets/imgs/VfX.png" height="30" width="50" style="float: left;">   
+      <ion-title style="text-align:center; vertical-align: middle;">VOLVO GROUP</ion-title></div>
   </ion-navbar>
 </ion-header>
  
 <ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input type="text" [(ngModel)]="keyedId"></ion-input>
-    </ion-item>
- 
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input type="password" [(ngModel)]="keyedPwd"></ion-input>
-    </ion-item>
-  </ion-list>
- 
-  <button ion-button full (click)="loginUser()">Login</button>
+  <div class="center">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Username</ion-label>
+        <ion-input type="text" [(ngModel)]="keyedId"></ion-input>
+      </ion-item>
+  
+      <ion-item>
+        <ion-label floating>Password</ion-label>
+        <ion-input type="password" [(ngModel)]="keyedPwd"></ion-input>
+      </ion-item>
+    </ion-list>
+  
+    <button ion-button full (click)="loginUser()">Login</button>
+  </div>
 </ion-content>

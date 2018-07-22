@@ -33,7 +33,8 @@ export class LoginPage {
   }
 
   loginUser() {
-    if(this.keyedId != null && this.keyedPwd != null) {
+    if(!this.isEmpty(this.keyedId) && !this.isEmpty(this.keyedPwd)){
+    //if(this.keyedId != null && this.keyedPwd != null) {
       if(!isNaN(this.keyedId)) {
         let userId = parseInt(this.keyedId);
         // Get a reference to the database service
@@ -41,16 +42,20 @@ export class LoginPage {
         this.userRef.valueChanges().subscribe(result => this.getUserDetails(result));      
       } else {
         this.toast.create({
-          message: 'Invalid User Id',
+          message: 'Invalid User name/Password',
           duration: 3000
         }).present();    
       }        
     } else {
       this.toast.create({
-        message: 'User Id & Password must be entered',
+        message: 'User name & Password must be entered',
         duration: 3000
       }).present();    
     } 
+  }
+
+  isEmpty(val){
+    return (val === undefined || val == null || val.length <= 0) ? true : false;
   }
 
   getUserDetails(data) {

@@ -14,16 +14,18 @@
 
 
 <ion-content padding>
+  <div class="center">
     <input type="hidden" [(ngModel)]="dealer.id" />
     <ion-item>
         <ion-label stacked>Name</ion-label>
         <ion-input [(ngModel)]="dealer.name" type="text" placeholder="Fill your name"></ion-input>
-      </ion-item>
-      <ion-item>
+    </ion-item>
+    <ion-item>
         <ion-label stacked>Language</ion-label>
         <ion-input [(ngModel)]="dealer.language" type="text" placeholder="Fill your language"></ion-input>
-      </ion-item>
-      <button ion-button color="primary" (click)="addDealer(dealer.id, dealer.name, dealer.language)"> 
-        <span *ngIf="dealer.id">Update MSC User</span><span *ngIf="!dealer.id">Add MSC User</span> 
-      </button>
+    </ion-item>
+    <button ion-button full color="primary" (click)="addDealer(dealer.id, dealer.name, dealer.language)"> 
+      <span *ngIf="dealer.id">Update MSC User</span><span *ngIf="!dealer.id">Add MSC User</span> 
+    </button>
+  </div>
 </ion-content>

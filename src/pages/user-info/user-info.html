@@ -16,18 +16,20 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item>
-        <h2> UserId: {{ userId }} </h2>
-    </ion-item>
-    <ion-item>
-       <ion-label stacked>User Name</ion-label>
-       <ion-input type="text" [(ngModel)]="userName" ></ion-input>
-    </ion-item>
-    <ion-item>
-        <ion-label stacked>Language</ion-label>
-        <ion-input type="text" [(ngModel)]="language" ></ion-input>
-     </ion-item>
-     <button ion-button full (click)="updateUserInfo()">Update</button>
+  <div class="center">
+    <ion-list>
+      <ion-item>
+          <h2> UserId: {{ userId }} </h2>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>User Name</ion-label>
+        <ion-input type="text" [(ngModel)]="userName" ></ion-input>
+      </ion-item>
+      <ion-item>
+          <ion-label stacked>Language</ion-label>
+          <ion-input type="text" [(ngModel)]="language" ></ion-input>
+      </ion-item>
+      <button ion-button full (click)="updateUserInfo()">Update</button>
     </ion-list>
+   </div> 
 </ion-content>
