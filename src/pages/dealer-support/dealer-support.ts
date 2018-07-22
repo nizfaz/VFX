@@ -69,14 +69,41 @@ export class DealerSupportPage {
       return;
     }
   
+    let filterFound = false;
     this.dealerQuestionList = this.dealerQuestionList.filter((v) => {
       if(v.dealerId && q) {
         if (v.dealerId.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+          filterFound = true;
           return true;
         }
-        return false;
       }
     });
+
+    if(!filterFound) {
+      // Reset items back to all of the items
+      this.initializeItems();
+        this.dealerQuestionList = this.dealerQuestionList.filter((value) => {
+          if(value.mailId && q) {
+            if (value.mailId.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+              filterFound = true;
+              return true;
+            }
+          }
+        });  
+    }
+
+      if(!filterFound) {
+    // Reset items back to all of the items
+    this.initializeItems();
+      this.dealerQuestionList = this.dealerQuestionList.filter((value) => {
+        if(value.question && q) {
+          if (value.question.toLowerCase().indexOf(q.toLowerCase()) > -1) {
+            return true;
+          }
+          return false;
+        }
+      });  
+    }
   }
 
   sort(){

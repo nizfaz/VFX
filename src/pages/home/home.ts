@@ -31,7 +31,7 @@ export class HomePage {
   ionViewWillEnter() {
     if (this.authProvider.isAdmin()) {
       this.pages = [
-        { title: 'Report', page: ReportPage, icon: 'document' },
+        { title: 'Report', page: ReportPage, icon: 'analytics' },
         { title: 'Users', page: UsersPage, icon: 'people' },
         { title: 'Questions', page: QuestionsPage, icon: 'help-circle' },
         { title: 'MSC Comments', page: DealerSupportPage, icon: 'text' },

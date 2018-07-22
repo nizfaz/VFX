@@ -6,7 +6,8 @@
             <ion-col><ion-label color="light" stacked>Welcome</ion-label>
                 <ion-title>{{ username }}</ion-title>              
             </ion-col>
-        </ion-row>
+            <ion-icon class="custom-icon" item-start name="home"></ion-icon>
+          </ion-row>
     </ion-toolbar>
   </ion-header>
  
@@ -25,7 +26,7 @@
       <ion-row align-items-center>
         <ion-col>
           <button ion-button full clear icon-left (click)="logout()" color="light">
-            <ion-icon name="sign-out">
+            <ion-icon class="custom-icon" name="log-out">
             </ion-icon>
             Logout</button>
         </ion-col>
