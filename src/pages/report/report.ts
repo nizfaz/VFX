@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { StatisticsPage } from '../statistics/statistics';
 import { CustomersCommentsPage } from '../customers-comments/customers-comments';
+import { WordsPage } from '../words/words';
 
 /**
  * Generated class for the ReportPage page.
@@ -20,6 +21,7 @@ export class ReportPage {
   // should be each tab's root Page
   tab1Root: any = StatisticsPage;
   tab2Root: any = CustomersCommentsPage;
+  tab3Root: any = WordsPage;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
   }

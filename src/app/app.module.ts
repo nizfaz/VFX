@@ -36,6 +36,7 @@ import {UsersPage} from '../pages/users/users';
 import {ThankyouPage} from '../pages/thankyou/thankyou';
 import { HttpModule } from '@angular/http';
 import { SortPipe } from '../pipes/sort/sort';
+import { WordsPage } from '../pages/words/words';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,8 @@ import { SortPipe } from '../pipes/sort/sort';
     UserInfoPage,
     UsersPage,
     ThankyouPage,
-    SortPipe
+    SortPipe,
+    WordsPage
   ],
   imports: [
     HttpClientModule,
@@ -93,7 +95,8 @@ import { SortPipe } from '../pipes/sort/sort';
     StatisticsPage,
     UserInfoPage,
     UsersPage,
-    ThankyouPage
+    ThankyouPage,
+    WordsPage
   ],
   providers: [
     StatusBar,
